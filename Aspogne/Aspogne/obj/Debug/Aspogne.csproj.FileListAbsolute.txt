@@ -6,3 +6,4 @@ C:\Users\NG\Google Drive\Mes documents - pro\UQAC\Intelligence artificielle\Proj
 C:\Users\NG\Google Drive\Mes documents - pro\UQAC\Intelligence artificielle\Projet 1 - Robot aspirateur\Aspogne\Aspogne\obj\Debug\Aspogne.csproj.GenerateResource.Cache
 C:\Users\NG\Google Drive\Mes documents - pro\UQAC\Intelligence artificielle\Projet 1 - Robot aspirateur\Aspogne\Aspogne\obj\Debug\Aspogne.exe
 C:\Users\NG\Google Drive\Mes documents - pro\UQAC\Intelligence artificielle\Projet 1 - Robot aspirateur\Aspogne\Aspogne\obj\Debug\Aspogne.pdb
+L:\UQAC\Intelligence Artificielle\ProjetAgentIntelligent\Aspogne\Aspogne\bin\Debug\Aspogne.exe.config
