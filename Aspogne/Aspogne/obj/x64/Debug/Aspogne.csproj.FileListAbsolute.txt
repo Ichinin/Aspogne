@@ -1,9 +1,0 @@
-C:\Users\NG\Google Drive\Mes documents - pro\UQAC\Intelligence artificielle\Projet 1 - Robot aspirateur\Aspogne\Aspogne\bin\x64\Debug\Aspogne.exe.config
-C:\Users\NG\Google Drive\Mes documents - pro\UQAC\Intelligence artificielle\Projet 1 - Robot aspirateur\Aspogne\Aspogne\bin\x64\Debug\Aspogne.exe
-C:\Users\NG\Google Drive\Mes documents - pro\UQAC\Intelligence artificielle\Projet 1 - Robot aspirateur\Aspogne\Aspogne\bin\x64\Debug\Aspogne.pdb
-C:\Users\NG\Google Drive\Mes documents - pro\UQAC\Intelligence artificielle\Projet 1 - Robot aspirateur\Aspogne\Aspogne\obj\x64\Debug\Aspogne.csprojResolveAssemblyReference.cache
-C:\Users\NG\Google Drive\Mes documents - pro\UQAC\Intelligence artificielle\Projet 1 - Robot aspirateur\Aspogne\Aspogne\obj\x64\Debug\Aspogne.Form1.resources
-C:\Users\NG\Google Drive\Mes documents - pro\UQAC\Intelligence artificielle\Projet 1 - Robot aspirateur\Aspogne\Aspogne\obj\x64\Debug\Aspogne.Properties.Resources.resources
-C:\Users\NG\Google Drive\Mes documents - pro\UQAC\Intelligence artificielle\Projet 1 - Robot aspirateur\Aspogne\Aspogne\obj\x64\Debug\Aspogne.csproj.GenerateResource.Cache
-C:\Users\NG\Google Drive\Mes documents - pro\UQAC\Intelligence artificielle\Projet 1 - Robot aspirateur\Aspogne\Aspogne\obj\x64\Debug\Aspogne.exe
-C:\Users\NG\Google Drive\Mes documents - pro\UQAC\Intelligence artificielle\Projet 1 - Robot aspirateur\Aspogne\Aspogne\obj\x64\Debug\Aspogne.pdb

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Aspogne.Properties
+namespace Environment.Properties
 {
 
 

@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B002503C-9887-4BB0-BCFD-63AC4C2C3B07}</ProjectGuid>
+    <ProjectGuid>{748F898A-3C31-4442-8C26-2192D189E41F}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Aspogne</RootNamespace>
-    <AssemblyName>Aspogne</AssemblyName>
+    <RootNamespace>MainProgram</RootNamespace>
+    <AssemblyName>MainProgram</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,14 +43,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Actionneur.cs" />
-    <Compile Include="BDI.cs" />
-    <Compile Include="Capteur.cs" />
-    <Compile Include="ProgramAspogne.cs" />
+    <Compile Include="ProgramMain.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Aspogne\Aspogne.csproj">
+      <Project>{b002503c-9887-4bb0-bcfd-63ac4c2c3b07}</Project>
+      <Name>Aspogne</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Environment\Environment.csproj">
+      <Project>{7ee1e26d-6779-46cd-83e6-d5ad4690b5f8}</Project>
+      <Name>Environment</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
