@@ -22,7 +22,7 @@ namespace MainProgram
 
             Thread monthreadEnvironment = new Thread(new ThreadStart(MainWindow.Show));
 
-            monthreadAspogne.Start();
+            //monthreadAspogne.Start();
             Console.Read();
         }
     }

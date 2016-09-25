@@ -24,37 +24,55 @@ namespace Environment
         {
             InitializeComponent();
 
-            Grid _environnement = new Grid();
+            Grid m_gEnvironnement = new Grid();
 
-            RowDefinition RowGrid0 = new RowDefinition();
-            RowDefinition RowGrid1 = new RowDefinition();
-            RowDefinition RowGrid2 = new RowDefinition();
-            _environnement.RowDefinitions.Add(RowGrid0);
-            _environnement.RowDefinitions.Add(RowGrid1);
-            _environnement.RowDefinitions.Add(RowGrid2);
+            RowDefinition m_rRowGrid0 = new RowDefinition();
+            RowDefinition m_rRowGrid1 = new RowDefinition();
+            RowDefinition m_rRowGrid2 = new RowDefinition();
+            m_gEnvironnement.RowDefinitions.Add(m_rRowGrid0);
+            m_gEnvironnement.RowDefinitions.Add(m_rRowGrid1);
+            m_gEnvironnement.RowDefinitions.Add(m_rRowGrid2);
 
-            ColumnDefinition ColumnGrid0 = new ColumnDefinition();
-            ColumnDefinition ColumnGrid1 = new ColumnDefinition();
-            ColumnDefinition ColumnGrid2 = new ColumnDefinition();
-            ColumnDefinition ColumnGrid3 = new ColumnDefinition();
-            ColumnDefinition ColumnGrid4 = new ColumnDefinition();
-            _environnement.ColumnDefinitions.Add(ColumnGrid0);
-            _environnement.ColumnDefinitions.Add(ColumnGrid1);
-            _environnement.ColumnDefinitions.Add(ColumnGrid2);
-            _environnement.ColumnDefinitions.Add(ColumnGrid3);
-            _environnement.ColumnDefinitions.Add(ColumnGrid4);
-            
+            ColumnDefinition m_cColumnGrid0 = new ColumnDefinition();
+            ColumnDefinition m_cColumnGrid1 = new ColumnDefinition();
+            ColumnDefinition m_cColumnGrid2 = new ColumnDefinition();
+            ColumnDefinition m_cColumnGrid3 = new ColumnDefinition();
+            ColumnDefinition m_cColumnGrid4 = new ColumnDefinition();
+            m_gEnvironnement.ColumnDefinitions.Add(m_cColumnGrid0);
+            m_gEnvironnement.ColumnDefinitions.Add(m_cColumnGrid1);
+            m_gEnvironnement.ColumnDefinitions.Add(m_cColumnGrid2);
+            m_gEnvironnement.ColumnDefinitions.Add(m_cColumnGrid3);
+            m_gEnvironnement.ColumnDefinitions.Add(m_cColumnGrid4);
+
+            List<Square> m_lGameSquare = new List<Square>();
+            for (int i = 0; i < 15; i++)
+            {
+                Square m_sGameSquare = new Square();
+                m_lGameSquare.Add(m_sGameSquare); 
+            }
+
+            int k = 0;
             for (int i = 0; i < 3; i++)
             {
                 for (int j = 0; j < 5; j++)
                 {
-                    Image imageCell = new Image();
-                    Grid.SetRow(imageCell, i);
-                    Grid.SetColumn(imageCell, j);
+                    Grid.SetRow(m_lGameSquare[k], i);
+                    Grid.SetColumn(m_lGameSquare[k], j);
 
-                    _environnement.Children.Add(imageCell);
+                    m_gEnvironnement.Children.Add(m_lGameSquare[k]);
+
+                    if ((k == 3 || k == 4 || k == 13 || k == 14))
+                    {
+                        m_lGameSquare[k].RemoveJewels();
+                        m_lGameSquare[k].RemoveDust();
+                        m_lGameSquare[k].RemoveVacuum();
+                    }
+                    k++;
                 }
             }
+
+            Content = m_gEnvironnement;
+           
         }
     }
 }

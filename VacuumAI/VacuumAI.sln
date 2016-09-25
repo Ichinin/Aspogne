@@ -8,6 +8,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MainProgram", "MainProgram\MainProgram.csproj", "{748F898A-3C31-4442-8C26-2192D189E41F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VacuumRobot", "VacuumRobot\VacuumRobot.csproj", "{B002503C-9887-4BB0-BCFD-63AC4C2C3B07}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7EE1E26D-6779-46CD-83E6-D5AD4690B5F8} = {7EE1E26D-6779-46CD-83E6-D5AD4690B5F8}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -20,9 +20,18 @@ namespace Environment
     /// </summary>
     public partial class Square : UserControl
     {
-        private bool m_bHasDust = false;
-        private bool m_bHasJewels = false;
-        private bool m_bHasVacuum = false;
+        private bool m_bHasDust = true;
+        private bool m_bHasJewels = true;
+        private bool m_bHasVacuum = true;
+
+        public Square()
+        {
+            InitializeComponent();
+
+            //SquareGrid.Children
+            //.Cast<UIElement>()
+            //.First(e => Grid.GetRow(e) == 0 && Grid.GetColumn(e) == 0);
+        }
 
         public bool HasDust
         {
@@ -31,41 +40,80 @@ namespace Environment
                 return m_bHasDust;
             }
         }
-            
 
-        public Square()
+        public bool HasJewels
         {
-            InitializeComponent();
+            get
+            {
+                return m_bHasJewels;
+            }
         }
 
-        private void AddDust()
+        public bool HasVacuum
+        {
+            get
+            {
+                return m_bHasVacuum;
+            }
+        }
+
+        public void AddDust()
         {
             this.m_bHasDust = true;
+            UIElement uieSquare = SquareGrid.Children
+            .Cast<UIElement>()
+            .First(e => Grid.GetRow(e) == 1 && Grid.GetColumn(e) == 0);
+            uieSquare.Visibility = Visibility.Visible;
         }
 
-        private void RemoveDust()
+        public void RemoveDust()
         {
             this.m_bHasDust = false;
+
+            UIElement uieSquare = SquareGrid.Children
+            .Cast<UIElement>()
+            .First(e => Grid.GetRow(e) == 1 && Grid.GetColumn(e) == 0);
+            uieSquare.Visibility = Visibility.Hidden;
         }
 
-        private void AddJewels()
+        public void AddJewels()
         {
             this.m_bHasJewels = true;
+
+            UIElement uieSquare = SquareGrid.Children
+            .Cast<UIElement>()
+            .First(e => Grid.GetRow(e) == 1 && Grid.GetColumn(e) == 1);
+            uieSquare.Visibility = Visibility.Visible;
         }
 
-        private void RemoveJewels()
+        public void RemoveJewels()
         {
             this.m_bHasJewels = false;
+
+            UIElement uieSquare = SquareGrid.Children
+            .Cast<UIElement>()
+            .First(e => Grid.GetRow(e) == 1 && Grid.GetColumn(e) == 1);
+            uieSquare.Visibility = Visibility.Hidden;
         }
 
-        private void AddVacuum()
+        public void AddVacuum()
         {
             this.m_bHasVacuum = true;
+
+            UIElement uieSquare = SquareGrid.Children
+            .Cast<UIElement>()
+            .First(e => Grid.GetRow(e) == 0 && Grid.GetColumn(e) == 0);
+            uieSquare.Visibility = Visibility.Visible;
         }
 
-        private void RemoveVacuum()
+        public void RemoveVacuum()
         {
             this.m_bHasVacuum = false;
+
+            UIElement uieSquare = SquareGrid.Children
+            .Cast<UIElement>()
+            .First(e => Grid.GetRow(e) == 0 && Grid.GetColumn(e) == 0);
+            uieSquare.Visibility = Visibility.Hidden;
         }
     }
 }

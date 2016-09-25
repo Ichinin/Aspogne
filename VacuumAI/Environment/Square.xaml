@@ -15,7 +15,9 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-
+        
         <Image Grid.Row="0" Grid.Column="0" Source="Aspiro.png"></Image>
+        <Image Grid.Row="1" Grid.Column="0" Source="Dust.jpg"></Image>
+        <Image Grid.Row="1" Grid.Column="1" Source="Jewel.png"></Image>
     </Grid>
 </UserControl>

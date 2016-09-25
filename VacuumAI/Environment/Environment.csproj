@@ -103,13 +103,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\VacuumRobot\VacuumRobot.csproj">
-      <Project>{b002503c-9887-4bb0-bcfd-63ac4c2c3b07}</Project>
-      <Name>Aspogne</Name>
-    </ProjectReference>
+    <Resource Include="Aspiro.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Aspiro.png" />
+    <Resource Include="Dust.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Jewel.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
