@@ -1,0 +1,8 @@
+C:\Users\NG\Google Drive\Mes documents - pro\UQAC\Intelligence artificielle\Projet 1 - Robot aspirateur\VacuumAI\VacuumRobot\bin\x64\Release\VacuumRobot.exe.config
+C:\Users\NG\Google Drive\Mes documents - pro\UQAC\Intelligence artificielle\Projet 1 - Robot aspirateur\VacuumAI\VacuumRobot\bin\x64\Release\VacuumRobot.exe
+C:\Users\NG\Google Drive\Mes documents - pro\UQAC\Intelligence artificielle\Projet 1 - Robot aspirateur\VacuumAI\VacuumRobot\bin\x64\Release\VacuumRobot.pdb
+C:\Users\NG\Google Drive\Mes documents - pro\UQAC\Intelligence artificielle\Projet 1 - Robot aspirateur\VacuumAI\VacuumRobot\bin\x64\Release\Environment.exe
+C:\Users\NG\Google Drive\Mes documents - pro\UQAC\Intelligence artificielle\Projet 1 - Robot aspirateur\VacuumAI\VacuumRobot\bin\x64\Release\Environment.pdb
+C:\Users\NG\Google Drive\Mes documents - pro\UQAC\Intelligence artificielle\Projet 1 - Robot aspirateur\VacuumAI\VacuumRobot\obj\x64\Release\VacuumRobot.csprojResolveAssemblyReference.cache
+C:\Users\NG\Google Drive\Mes documents - pro\UQAC\Intelligence artificielle\Projet 1 - Robot aspirateur\VacuumAI\VacuumRobot\obj\x64\Release\VacuumRobot.exe
+C:\Users\NG\Google Drive\Mes documents - pro\UQAC\Intelligence artificielle\Projet 1 - Robot aspirateur\VacuumAI\VacuumRobot\obj\x64\Release\VacuumRobot.pdb
