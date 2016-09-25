@@ -14,3 +14,19 @@ C:\Users\NG\Google Drive\Mes documents - pro\UQAC\Intelligence artificielle\Proj
 C:\Users\NG\Google Drive\Mes documents - pro\UQAC\Intelligence artificielle\Projet 1 - Robot aspirateur\Aspogne\Environment\obj\Debug\Environment.csproj.GenerateResource.Cache
 C:\Users\NG\Google Drive\Mes documents - pro\UQAC\Intelligence artificielle\Projet 1 - Robot aspirateur\Aspogne\Environment\obj\Debug\Environment.exe
 C:\Users\NG\Google Drive\Mes documents - pro\UQAC\Intelligence artificielle\Projet 1 - Robot aspirateur\Aspogne\Environment\obj\Debug\Environment.pdb
+L:\UQAC\Intelligence Artificielle\ProjetAgentIntelligent\Aspogne\Environment\bin\Debug\Environment.exe.config
+L:\UQAC\Intelligence Artificielle\ProjetAgentIntelligent\Aspogne\Environment\obj\Debug\Environment.csprojResolveAssemblyReference.cache
+L:\UQAC\Intelligence Artificielle\ProjetAgentIntelligent\Aspogne\Environment\obj\Debug\MainWindow.g.cs
+L:\UQAC\Intelligence Artificielle\ProjetAgentIntelligent\Aspogne\Environment\obj\Debug\App.g.cs
+L:\UQAC\Intelligence Artificielle\ProjetAgentIntelligent\Aspogne\Environment\obj\Debug\Environment_MarkupCompile.cache
+L:\UQAC\Intelligence Artificielle\ProjetAgentIntelligent\Aspogne\Environment\obj\Debug\Environment_MarkupCompile.lref
+L:\UQAC\Intelligence Artificielle\ProjetAgentIntelligent\Aspogne\Environment\bin\Debug\Environment.exe
+L:\UQAC\Intelligence Artificielle\ProjetAgentIntelligent\Aspogne\Environment\bin\Debug\Environment.pdb
+L:\UQAC\Intelligence Artificielle\ProjetAgentIntelligent\Aspogne\Environment\bin\Debug\Aspogne.exe
+L:\UQAC\Intelligence Artificielle\ProjetAgentIntelligent\Aspogne\Environment\bin\Debug\Aspogne.pdb
+L:\UQAC\Intelligence Artificielle\ProjetAgentIntelligent\Aspogne\Environment\obj\Debug\MainWindow.baml
+L:\UQAC\Intelligence Artificielle\ProjetAgentIntelligent\Aspogne\Environment\obj\Debug\Environment.g.resources
+L:\UQAC\Intelligence Artificielle\ProjetAgentIntelligent\Aspogne\Environment\obj\Debug\Environment.Properties.Resources.resources
+L:\UQAC\Intelligence Artificielle\ProjetAgentIntelligent\Aspogne\Environment\obj\Debug\Environment.csproj.GenerateResource.Cache
+L:\UQAC\Intelligence Artificielle\ProjetAgentIntelligent\Aspogne\Environment\obj\Debug\Environment.exe
+L:\UQAC\Intelligence Artificielle\ProjetAgentIntelligent\Aspogne\Environment\obj\Debug\Environment.pdb
