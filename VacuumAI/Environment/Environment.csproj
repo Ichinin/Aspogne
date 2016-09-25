@@ -103,7 +103,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Aspogne\Aspogne.csproj">
+    <ProjectReference Include="..\VacuumRobot\VacuumRobot.csproj">
       <Project>{b002503c-9887-4bb0-bcfd-63ac4c2c3b07}</Project>
       <Name>Aspogne</Name>
     </ProjectReference>
