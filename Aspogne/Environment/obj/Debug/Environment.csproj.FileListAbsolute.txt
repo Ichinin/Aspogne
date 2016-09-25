@@ -1,0 +1,16 @@
+C:\Users\NG\Google Drive\Mes documents - pro\UQAC\Intelligence artificielle\Projet 1 - Robot aspirateur\Aspogne\Environment\bin\Debug\Environment.exe.config
+C:\Users\NG\Google Drive\Mes documents - pro\UQAC\Intelligence artificielle\Projet 1 - Robot aspirateur\Aspogne\Environment\bin\Debug\Environment.exe
+C:\Users\NG\Google Drive\Mes documents - pro\UQAC\Intelligence artificielle\Projet 1 - Robot aspirateur\Aspogne\Environment\bin\Debug\Environment.pdb
+C:\Users\NG\Google Drive\Mes documents - pro\UQAC\Intelligence artificielle\Projet 1 - Robot aspirateur\Aspogne\Environment\bin\Debug\Aspogne.exe
+C:\Users\NG\Google Drive\Mes documents - pro\UQAC\Intelligence artificielle\Projet 1 - Robot aspirateur\Aspogne\Environment\bin\Debug\Aspogne.pdb
+C:\Users\NG\Google Drive\Mes documents - pro\UQAC\Intelligence artificielle\Projet 1 - Robot aspirateur\Aspogne\Environment\obj\Debug\Environment.csprojResolveAssemblyReference.cache
+C:\Users\NG\Google Drive\Mes documents - pro\UQAC\Intelligence artificielle\Projet 1 - Robot aspirateur\Aspogne\Environment\obj\Debug\MainWindow.g.cs
+C:\Users\NG\Google Drive\Mes documents - pro\UQAC\Intelligence artificielle\Projet 1 - Robot aspirateur\Aspogne\Environment\obj\Debug\App.g.cs
+C:\Users\NG\Google Drive\Mes documents - pro\UQAC\Intelligence artificielle\Projet 1 - Robot aspirateur\Aspogne\Environment\obj\Debug\Environment_MarkupCompile.cache
+C:\Users\NG\Google Drive\Mes documents - pro\UQAC\Intelligence artificielle\Projet 1 - Robot aspirateur\Aspogne\Environment\obj\Debug\Environment_MarkupCompile.lref
+C:\Users\NG\Google Drive\Mes documents - pro\UQAC\Intelligence artificielle\Projet 1 - Robot aspirateur\Aspogne\Environment\obj\Debug\MainWindow.baml
+C:\Users\NG\Google Drive\Mes documents - pro\UQAC\Intelligence artificielle\Projet 1 - Robot aspirateur\Aspogne\Environment\obj\Debug\Environment.g.resources
+C:\Users\NG\Google Drive\Mes documents - pro\UQAC\Intelligence artificielle\Projet 1 - Robot aspirateur\Aspogne\Environment\obj\Debug\Environment.Properties.Resources.resources
+C:\Users\NG\Google Drive\Mes documents - pro\UQAC\Intelligence artificielle\Projet 1 - Robot aspirateur\Aspogne\Environment\obj\Debug\Environment.csproj.GenerateResource.Cache
+C:\Users\NG\Google Drive\Mes documents - pro\UQAC\Intelligence artificielle\Projet 1 - Robot aspirateur\Aspogne\Environment\obj\Debug\Environment.exe
+C:\Users\NG\Google Drive\Mes documents - pro\UQAC\Intelligence artificielle\Projet 1 - Robot aspirateur\Aspogne\Environment\obj\Debug\Environment.pdb
