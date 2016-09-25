@@ -1,0 +1,6 @@
+C:\Users\NG\Google Drive\Mes documents - pro\UQAC\Intelligence artificielle\Projet 1 - Robot aspirateur\Aspogne\Aspogne\bin\Debug\Aspogne.exe.config
+C:\Users\NG\Google Drive\Mes documents - pro\UQAC\Intelligence artificielle\Projet 1 - Robot aspirateur\Aspogne\Aspogne\bin\Debug\Aspogne.exe
+C:\Users\NG\Google Drive\Mes documents - pro\UQAC\Intelligence artificielle\Projet 1 - Robot aspirateur\Aspogne\Aspogne\bin\Debug\Aspogne.pdb
+C:\Users\NG\Google Drive\Mes documents - pro\UQAC\Intelligence artificielle\Projet 1 - Robot aspirateur\Aspogne\Aspogne\obj\Debug\Aspogne.csprojResolveAssemblyReference.cache
+C:\Users\NG\Google Drive\Mes documents - pro\UQAC\Intelligence artificielle\Projet 1 - Robot aspirateur\Aspogne\Aspogne\obj\Debug\Aspogne.exe
+C:\Users\NG\Google Drive\Mes documents - pro\UQAC\Intelligence artificielle\Projet 1 - Robot aspirateur\Aspogne\Aspogne\obj\Debug\Aspogne.pdb
