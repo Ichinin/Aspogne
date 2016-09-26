@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -13,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+
 
 namespace Environment
 {
@@ -26,9 +28,17 @@ namespace Environment
 
         // Creation of a grid to act as the game set
         Grid m_gEnvironnement = new Grid();
+        int nDust = 0;
+        int nJewel = 0;
+        private static Timer  aTimer = new Timer(10000); 
 
         public MainWindow()
         {
+            /*aTimer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
+
+            aTimer.Interval = 1000;
+            aTimer.Enabled = true;*/
+
             InitializeComponent();
 
             RowDefinition m_rRowGrid0 = new RowDefinition();
@@ -53,9 +63,10 @@ namespace Environment
 
             Content = m_gEnvironnement;
 
+            RandomStuffs(2);
             MoveVacuum(0, 1);
         }
-        
+
         /// <summary>
         /// Creates a list of 15 Squares, and address one to each cell of the environnement (0->14)
         /// </summary>
@@ -107,7 +118,8 @@ namespace Environment
             try
             {
                 if ((0 <= m_pCurrentLocation) && (m_pCurrentLocation <= 14) &&
-                    (0 <= m_pDestination) && (m_pDestination<= 14))
+                    (0 <= m_pDestination) && (m_pDestination<= 14)
+                    )
                 {
                     if(!((m_pDestination == 3) && (m_pDestination == 4) && (m_pDestination == 14) && (m_pDestination == 13)))
                     {
@@ -120,6 +132,35 @@ namespace Environment
             {
                 Trace.Write(ex.Message);
             }
+        }
+
+        private void AddDust(int DustLocation)
+        {
+            m_lGameSquare[DustLocation].AddDust();
+            nDust += 1;
+        }
+        private void AddJewel(int JewelLocation)
+        {
+            m_lGameSquare[JewelLocation].AddJewels();
+            nJewel += 1;
+        }
+        
+        private void RandomStuffs(int factors)
+        {
+            Random rand = new Random();
+            int index = rand.Next(0, 13);
+
+            if ((index !=3)|| (index != 4))
+            {
+                if ((nDust / (nJewel+1)) <= factors) { /*this.AddDust(index);*/ }
+                else { this.AddJewel(index); }
+                    
+            }
+            else
+            {
+                index = rand.Next(0, 13);
+            }
+
         }
     }
 }
