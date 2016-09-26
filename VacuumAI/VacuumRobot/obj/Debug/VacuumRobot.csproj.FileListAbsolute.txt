@@ -1,0 +1,8 @@
+L:\UQAC\Intelligence Artificielle\ProjetAgentIntelligent\VacuumAI\VacuumRobot\bin\Debug\VacuumRobot.exe.config
+L:\UQAC\Intelligence Artificielle\ProjetAgentIntelligent\VacuumAI\VacuumRobot\bin\Debug\VacuumRobot.exe
+L:\UQAC\Intelligence Artificielle\ProjetAgentIntelligent\VacuumAI\VacuumRobot\bin\Debug\VacuumRobot.pdb
+L:\UQAC\Intelligence Artificielle\ProjetAgentIntelligent\VacuumAI\VacuumRobot\bin\Debug\Environment.exe
+L:\UQAC\Intelligence Artificielle\ProjetAgentIntelligent\VacuumAI\VacuumRobot\bin\Debug\Environment.pdb
+L:\UQAC\Intelligence Artificielle\ProjetAgentIntelligent\VacuumAI\VacuumRobot\obj\Debug\VacuumRobot.csprojResolveAssemblyReference.cache
+L:\UQAC\Intelligence Artificielle\ProjetAgentIntelligent\VacuumAI\VacuumRobot\obj\Debug\VacuumRobot.exe
+L:\UQAC\Intelligence Artificielle\ProjetAgentIntelligent\VacuumAI\VacuumRobot\obj\Debug\VacuumRobot.pdb
