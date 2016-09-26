@@ -1,1 +1,7 @@
-Aspogne/Aspogne/obj/
+VacuumAI/MainProgram/bin
+VacuumAI/MainProgram/obj
+VacuumAI/VacuumRobot/bin
+VacuumAI/VacuumRobot/obj
+VacuumAI/Environment/bin
+VacuumAI/Environment/obj
+VacuumAI/.vs/VacuumAI/v14/.suo
