@@ -24,13 +24,13 @@ namespace Environment
     public partial class MainWindow : Window
     {
         // Contains the 15 squares of the game, labeled 0 to 14
-        List<Square> m_lGameSquare = new List<Square>();
+        private List<Square> m_lGameSquare = new List<Square>();
 
         // Creation of a grid to act as the game set
-        Grid m_gEnvironnement = new Grid();
-        int nDust = 0;
-        int nJewel = 0;
-        private static Timer  aTimer = new Timer(10000); 
+        private Grid m_gEnvironnement = new Grid();
+        private int nDust = 0;
+        private int nJewel = 0;
+        private static Timer aTimer = new Timer(10000);
 
         public MainWindow()
         {
@@ -118,10 +118,10 @@ namespace Environment
             try
             {
                 if ((0 <= m_pCurrentLocation) && (m_pCurrentLocation <= 14) &&
-                    (0 <= m_pDestination) && (m_pDestination<= 14)
+                    (0 <= m_pDestination) && (m_pDestination <= 14)
                     )
                 {
-                    if(!((m_pDestination == 3) && (m_pDestination == 4) && (m_pDestination == 14) && (m_pDestination == 13)))
+                    if (!((m_pDestination == 3) && (m_pDestination == 4) && (m_pDestination == 14) && (m_pDestination == 13)))
                     {
                         m_lGameSquare[m_pCurrentLocation].RemoveVacuum();
                         m_lGameSquare[m_pDestination].AddVacuum();
@@ -139,28 +139,35 @@ namespace Environment
             m_lGameSquare[DustLocation].AddDust();
             nDust += 1;
         }
+
         private void AddJewel(int JewelLocation)
         {
             m_lGameSquare[JewelLocation].AddJewels();
             nJewel += 1;
         }
-        
+
         private void RandomStuffs(int factors)
         {
             Random rand = new Random();
             int index = rand.Next(0, 13);
 
-            if ((index !=3)|| (index != 4))
+            if ((index != 3) || (index != 4))
             {
-                if ((nDust / (nJewel+1)) <= factors) { /*this.AddDust(index);*/ }
-                else { this.AddJewel(index); }
-                    
+                if ((nDust / (nJewel + 1)) <= factors)
+                {
+                    // this.AddDust(index);
+                }
+                else
+                {
+                    this.AddJewel(index);
+                }
+
             }
             else
             {
                 index = rand.Next(0, 13);
             }
-
         }
+
     }
 }
