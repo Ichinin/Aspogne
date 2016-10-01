@@ -113,6 +113,11 @@ namespace Environment
             }
         }
 
+        /// <summary>
+        /// Moves the vacuum sprite from the case m_pCurrentLocation to m_pDestination
+        /// </summary>
+        /// <param name="m_pCurrentLocation">Case where the sprite will be removed</param>
+        /// <param name="m_pDestination">Case where the sprite will be added</param>
         private void MoveVacuum(int m_pCurrentLocation, int m_pDestination)
         {
             try
