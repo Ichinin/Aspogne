@@ -15,7 +15,7 @@ namespace VacuumRobot
         /// <param name="p_sSquare"> The current square. </param>
         public void PickUpJewel(Case p_sSquare)
         {
-            p_sSquare.HasJewel = false;
+            p_sSquare.RemoveJewel();
         }
 
         /// <summary>
@@ -24,7 +24,7 @@ namespace VacuumRobot
         /// <param name="p_sSquare">  The current square. </param>
         public void PickUpDust(Case p_sSquare)
         {
-            p_sSquare.HasDust = false;
+            p_sSquare.RemoveDust();
         }
     }
 }

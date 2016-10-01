@@ -7,14 +7,14 @@ using Environment;
 
 namespace VacuumRobot
 {
-    public class Sensor
+    public static class Sensor
     {
         /// <summary>
         /// Return true if the current case contains some dust, false otherwise.
         /// </summary>
         /// <param name="p_sSquare"> The case to scan. </param>
         /// <returns></returns>
-        public bool HasDust(Case p_sSquare)
+        public static bool HasDust(Case p_sSquare)
         {
             return p_sSquare.HasDust;
         }
@@ -24,7 +24,7 @@ namespace VacuumRobot
         /// </summary>
         /// <param name="p_sSquare"> The case to scan. </param>
         /// <returns></returns>
-        public bool HasJewel(Case p_sSquare)
+        public static bool HasJewel(Case p_sSquare)
         {
             return p_sSquare.HasJewel;
         }

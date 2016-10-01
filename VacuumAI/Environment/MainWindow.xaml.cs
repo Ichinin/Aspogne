@@ -94,7 +94,7 @@ namespace Environment
 
                         m_gEnvironnement.Children.Add(m_lGameSquare[k]);
 
-                        m_lGameSquare[k].RemoveJewels();
+                        m_lGameSquare[k].RemoveJewel();
                         m_lGameSquare[k].RemoveDust();
                         m_lGameSquare[k].RemoveVacuum();
                         // Remove everything from the 4 squares that aren't part of the environnement
@@ -142,7 +142,7 @@ namespace Environment
 
         private void AddJewel(int JewelLocation)
         {
-            m_lGameSquare[JewelLocation].AddJewels();
+            m_lGameSquare[JewelLocation].AddJewel();
             nJewel += 1;
         }
 
