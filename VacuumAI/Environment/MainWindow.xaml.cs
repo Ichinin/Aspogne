@@ -64,13 +64,8 @@ namespace Environment
 
             Content = m_gEnvironnement;
 
-<<<<<<< HEAD
-            RandomStuffs(2);
             //MoveVacuum(0, 1);
-=======
             GenerateObjects(2);
-            MoveVacuum(0, 1);
->>>>>>> 031357a537b1038fe8cfba9db3a246410e38419e
         }
 
         /// <summary>
