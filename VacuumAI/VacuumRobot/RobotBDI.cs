@@ -46,9 +46,10 @@ namespace VacuumRobot
         public bool[] Scan()
         {
             //bool[] result = new bool[2];
-
+            bool[] a = { false };
             //bool[] result = { Sensor.HasDust(m_asPathArray[m_iCurrentPositionIndex]), Sensor.hasJewel(m_asPathArray[m_iCurrentPositionIndex]) };
             //return result;
+            return a;
         }
 
     }
