@@ -14,7 +14,7 @@ namespace VacuumRobot
         /// </summary>
         /// <param name="p_sSquare"> The case to scan. </param>
         /// <returns></returns>
-        public static bool HasDust(Case p_sSquare)
+        public static bool HasDust(Square p_sSquare)
         {
             return p_sSquare.HasDust;
         }
@@ -24,7 +24,7 @@ namespace VacuumRobot
         /// </summary>
         /// <param name="p_sSquare"> The case to scan. </param>
         /// <returns></returns>
-        public static bool HasJewel(Case p_sSquare)
+        public static bool HasJewel(Square p_sSquare)
         {
             return p_sSquare.HasJewel;
         }

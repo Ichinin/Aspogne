@@ -63,9 +63,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Actuator.cs" />
-    <Compile Include="RobotBDI.cs" />
-    <None Include="Sensor.cs" />
+    <Compile Include="Actuator.cs" />
+    <Compile Include="RobotAI.cs" />
+    <Compile Include="Sensor.cs" />
     <Compile Include="MainVacuum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

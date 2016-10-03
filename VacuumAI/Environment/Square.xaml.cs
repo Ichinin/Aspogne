@@ -20,9 +20,9 @@ namespace Environment
     /// </summary>
     public partial class Square : UserControl
     {
-        private bool m_bHasDust = true;
-        private bool m_bHasJewel = true;
-        private bool m_bHasVacuum = true;
+        private bool m_bHasDust = false;
+        private bool m_bHasJewel = false;
+        private bool m_bHasVacuum = false;
 
         /// <summary>
         /// 
@@ -87,7 +87,7 @@ namespace Environment
             //.First(e => Grid.GetRow(e) == 0 && Grid.GetColumn(e) == 0);
         }
 
-        public void AddDust()
+        /*public void AddDust()
         {
             HasDust = true;
         }
@@ -115,6 +115,6 @@ namespace Environment
         public void RemoveVacuum()
         {
             HasVacuum = false;
-        }
+        }*/
     }
 }

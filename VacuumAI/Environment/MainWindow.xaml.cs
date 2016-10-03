@@ -64,7 +64,7 @@ namespace Environment
             Content = m_gEnvironnement;
 
             RandomStuffs(2);
-            MoveVacuum(0, 1);
+            //MoveVacuum(0, 1);
         }
 
         /// <summary>
@@ -94,9 +94,6 @@ namespace Environment
 
                         m_gEnvironnement.Children.Add(m_lGameSquare[k]);
 
-                        m_lGameSquare[k].RemoveJewel();
-                        m_lGameSquare[k].RemoveDust();
-                        m_lGameSquare[k].RemoveVacuum();
                         // Remove everything from the 4 squares that aren't part of the environnement
                         if ((k == 3 || k == 4 || k == 13 || k == 14))
                         {
@@ -105,7 +102,7 @@ namespace Environment
                         k++;
                     }
                 }
-                m_lGameSquare[0].AddVacuum();
+                //m_lGameSquare[0].AddVacuum();
             }
             catch (Exception ex)
             {
@@ -113,7 +110,7 @@ namespace Environment
             }
         }
 
-        private void MoveVacuum(int m_pCurrentLocation, int m_pDestination)
+        /*private void MoveVacuum(int m_pCurrentLocation, int m_pDestination)
         {
             try
             {
@@ -132,17 +129,17 @@ namespace Environment
             {
                 Trace.Write(ex.Message);
             }
-        }
+        }*/
 
         private void AddDust(int DustLocation)
         {
-            m_lGameSquare[DustLocation].AddDust();
+            m_lGameSquare[DustLocation].HasDust = true;
             nDust += 1;
         }
 
         private void AddJewel(int JewelLocation)
         {
-            m_lGameSquare[JewelLocation].AddJewel();
+            m_lGameSquare[JewelLocation].HasJewel = true;
             nJewel += 1;
         }
 
