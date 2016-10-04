@@ -11,6 +11,7 @@ namespace VacuumRobot
         public static void PickUpJewel(Square p_sSquare)
         {
             p_sSquare.HasJewel = false;
+            Sensor.DustDetected = false;
         }
 
         /// <summary>
@@ -20,6 +21,7 @@ namespace VacuumRobot
         public static void PickUpDust(Square p_sSquare)
         {
             p_sSquare.HasDust = false;
+            Sensor.JewelDetected = false;
         }
     }
 }

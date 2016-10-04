@@ -20,16 +20,10 @@ namespace Environment
         private static Grid m_gEnvironnement = new Grid();
         private static int nDust = 0;
         private static int nJewel = 0;
-        
+        //private Timer aTimer = new Timer(10000);
 
         public MainWindow()
         {
-            Timer aTimer = new Timer();
-            aTimer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
-            aTimer.Interval = 1000;
-            aTimer.Enabled = true;
-
-
             InitializeComponent();
 
             RowDefinition m_rRowGrid0 = new RowDefinition();
@@ -52,14 +46,13 @@ namespace Environment
 
             PopulateSquare();
 
-            Content = m_gEnvironnement;
-        }
+            /* aTimer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
+             aTimer.AutoReset = true;
+             aTimer.Enabled = true;*/
 
-        private static void OnTimedEvent(object source, ElapsedEventArgs e)
-        {
-            string test = "you're in !";
-            GenerateObjects(2);
-            //AddJewel(7);
+            m_lGameSquare[0].HasDust = true;
+            AddDust(1);
+            Content = m_gEnvironnement;
         }
 
         /// <summary>
@@ -97,7 +90,6 @@ namespace Environment
                         k++;
                     }
                 }
-                //m_lGameSquare[0].AddVacuum();
             }
             catch (Exception ex)
             {
@@ -138,8 +130,24 @@ namespace Environment
             nJewel += 1;
         }
 
-        private static void GenerateObjects(int factors)
+        private void OnTimedEvent(object source, ElapsedEventArgs e)
         {
+            GenerateObjects(2);
+        }
+
+        public void GenerateObjects(int factors)
+        {
+
+            /*
+             * 
+             * USED FOR TEST PURPOSE.
+             * 
+             * */
+            AddDust(5);
+
+
+
+            /*
             Random rand = new Random();
             int index = rand.Next(0, 13);
 
@@ -147,7 +155,6 @@ namespace Environment
             {
                 if ((nDust / (nJewel + 1)) <= factors)
                 {
-                    AddDust(index);
                 }
                 else
                 {
@@ -158,6 +165,7 @@ namespace Environment
             {
                 index = rand.Next(0, 13);
             }
+            */
         }
 
     }

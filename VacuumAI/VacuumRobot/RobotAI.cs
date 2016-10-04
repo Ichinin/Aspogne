@@ -100,9 +100,9 @@ namespace VacuumRobot
             int iTimerIndex = 0;
             while (iTimerIndex < 50)
             {
-                Thread.Sleep(20);
                 Actuator.PickUpDust(m_asPathArray[m_iCurrentPositionIndex]);
                 Actuator.PickUpJewel(m_asPathArray[m_iCurrentPositionIndex]);
+                Thread.Sleep(20);
                 iTimerIndex++;
             }
             // Add 2 points and remove 1 for action.
@@ -119,6 +119,11 @@ namespace VacuumRobot
             // Add 4 points and remove 1 for action.
             //m_iPointsCount--;
             m_iPointsCount = m_iPointsCount + 3;
+        }
+
+        public void ChooseAnAction()
+        {
+
         }
 
     }

@@ -20,9 +20,9 @@ namespace Environment
     /// </summary>
     public partial class Square : UserControl
     {
-        private bool m_bHasDust = false;
-        private bool m_bHasJewel = false;
-        private bool m_bHasVacuum = false;
+        private bool m_bHasDust;
+        private bool m_bHasJewel;
+        private bool m_bHasVacuum;
 
         /// <summary>
         /// 
@@ -69,9 +69,27 @@ namespace Environment
             }
             set
             {
-                UIElement uieSquare = SquareGrid.Children.Cast<UIElement>().First(e => Grid.GetRow(e) == 1 && Grid.GetColumn(e) == 0);
-                uieSquare.Visibility = value ? Visibility.Visible : Visibility.Hidden;
                 m_bHasDust = value;
+
+                if (value == true )
+                {
+                    Dust.Visibility = Visibility.Visible;
+                    
+                }
+                else
+                {
+                    Dust.Visibility = Visibility.Hidden;
+                }
+
+
+                //Dust.Visibility = value ? Visibility.Visible : Visibility.Hidden;
+
+                /*int a = 0;
+                a++;*/
+
+                //UIElement uieSquare = SquareGrid.Children.Cast<UIElement>().First(e => Grid.GetRow(e) == 1 && Grid.GetColumn(e) == 0);
+                //uieSquare.Visibility = value ? Visibility.Visible : Visibility.Hidden;
+
             }
         }
 
@@ -81,15 +99,15 @@ namespace Environment
         public Square()
         {
             InitializeComponent();
-
-            //SquareGrid.Children
-            //.Cast<UIElement>()
-            //.First(e => Grid.GetRow(e) == 0 && Grid.GetColumn(e) == 0);
+            HasDust = false;
+            HasJewel = false;
+            HasVacuum = false;
         }
 
-        /*public void AddDust()
+        /*public void AddDust(bool value)
         {
-            HasDust = true;
+            UIElement uieSquare = SquareGrid.Children.Cast<UIElement>().First(e => Grid.GetRow(e) == 1 && Grid.GetColumn(e) == 0);
+            uieSquare.Visibility = value ? Visibility.Visible : Visibility.Hidden;
         }
 
         public void RemoveDust()
