@@ -1,19 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Timers;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 
 namespace Environment
@@ -63,15 +53,7 @@ namespace Environment
             PopulateSquare();
 
             Content = m_gEnvironnement;
-
-            //MoveVacuum(0, 1);
-            GenerateObjects(2);
         }
-
-        /// <summary>
-        /// Creates a list of 15 Squares, and address one to each cell of the environnement (0->14)
-        /// </summary>
-        /// 
 
         private static void OnTimedEvent(object source, ElapsedEventArgs e)
         {
@@ -80,6 +62,9 @@ namespace Environment
             //AddJewel(7);
         }
 
+        /// <summary>
+        /// Creates a list of 15 Squares, and address one to each cell of the environnement (0->14)
+        /// </summary>
         private void PopulateSquare()
         {
             try
@@ -155,7 +140,6 @@ namespace Environment
 
         private static void GenerateObjects(int factors)
         {
-
             Random rand = new Random();
             int index = rand.Next(0, 13);
 
@@ -163,13 +147,12 @@ namespace Environment
             {
                 if ((nDust / (nJewel + 1)) <= factors)
                 {
-                    //AddDust(index);
+                    AddDust(index);
                 }
                 else
                 {
                     AddJewel(index);
                 }
-
             }
             else
             {

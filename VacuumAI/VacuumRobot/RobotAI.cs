@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Environment;
-using System.Timers;
+﻿using Environment;
 using System.Threading;
 
 namespace VacuumRobot
