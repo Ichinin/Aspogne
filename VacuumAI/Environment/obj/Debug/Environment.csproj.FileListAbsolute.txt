@@ -14,22 +14,6 @@ L:\UQAC\Intelligence Artificielle\ProjetAgentIntelligent\VacuumAI\Environment\ob
 L:\UQAC\Intelligence Artificielle\ProjetAgentIntelligent\VacuumAI\Environment\obj\Debug\Environment.exe
 L:\UQAC\Intelligence Artificielle\ProjetAgentIntelligent\VacuumAI\Environment\obj\Debug\Environment.pdb
 L:\UQAC\Intelligence Artificielle\ProjetAgentIntelligent\VacuumAI\Environment\obj\Debug\Environment.csprojResolveAssemblyReference.cache
-C:\Users\rama\Documents\Aspogne\VacuumAI\Environment\bin\Debug\Environment.exe.config
-C:\Users\rama\Documents\Aspogne\VacuumAI\Environment\bin\Debug\Environment.exe
-C:\Users\rama\Documents\Aspogne\VacuumAI\Environment\bin\Debug\Environment.pdb
-C:\Users\rama\Documents\Aspogne\VacuumAI\Environment\obj\Debug\Environment.csprojResolveAssemblyReference.cache
-C:\Users\rama\Documents\Aspogne\VacuumAI\Environment\obj\Debug\Square.g.cs
-C:\Users\rama\Documents\Aspogne\VacuumAI\Environment\obj\Debug\MainWindow.g.cs
-C:\Users\rama\Documents\Aspogne\VacuumAI\Environment\obj\Debug\App.g.cs
-C:\Users\rama\Documents\Aspogne\VacuumAI\Environment\obj\Debug\Environment_MarkupCompile.cache
-C:\Users\rama\Documents\Aspogne\VacuumAI\Environment\obj\Debug\Environment_MarkupCompile.lref
-C:\Users\rama\Documents\Aspogne\VacuumAI\Environment\obj\Debug\Square.baml
-C:\Users\rama\Documents\Aspogne\VacuumAI\Environment\obj\Debug\MainWindow.baml
-C:\Users\rama\Documents\Aspogne\VacuumAI\Environment\obj\Debug\Environment.g.resources
-C:\Users\rama\Documents\Aspogne\VacuumAI\Environment\obj\Debug\Environment.Properties.Resources.resources
-C:\Users\rama\Documents\Aspogne\VacuumAI\Environment\obj\Debug\Environment.csproj.GenerateResource.Cache
-C:\Users\rama\Documents\Aspogne\VacuumAI\Environment\obj\Debug\Environment.exe
-C:\Users\rama\Documents\Aspogne\VacuumAI\Environment\obj\Debug\Environment.pdb
 C:\Users\NG\Google Drive\Mes documents - pro\UQAC\Intelligence artificielle\Projet 1 - Robot aspirateur\VacuumAI\Environment\bin\Debug\Environment.exe.config
 C:\Users\NG\Google Drive\Mes documents - pro\UQAC\Intelligence artificielle\Projet 1 - Robot aspirateur\VacuumAI\Environment\bin\Debug\Environment.exe
 C:\Users\NG\Google Drive\Mes documents - pro\UQAC\Intelligence artificielle\Projet 1 - Robot aspirateur\VacuumAI\Environment\bin\Debug\Environment.pdb
@@ -46,3 +30,19 @@ C:\Users\NG\Google Drive\Mes documents - pro\UQAC\Intelligence artificielle\Proj
 C:\Users\NG\Google Drive\Mes documents - pro\UQAC\Intelligence artificielle\Projet 1 - Robot aspirateur\VacuumAI\Environment\obj\Debug\Environment.csproj.GenerateResource.Cache
 C:\Users\NG\Google Drive\Mes documents - pro\UQAC\Intelligence artificielle\Projet 1 - Robot aspirateur\VacuumAI\Environment\obj\Debug\Environment.exe
 C:\Users\NG\Google Drive\Mes documents - pro\UQAC\Intelligence artificielle\Projet 1 - Robot aspirateur\VacuumAI\Environment\obj\Debug\Environment.pdb
+C:\Users\rama\Documents\Aspogne\VacuumAI\Environment\obj\Debug\Square.g.cs
+C:\Users\rama\Documents\Aspogne\VacuumAI\Environment\obj\Debug\MainWindow.g.cs
+C:\Users\rama\Documents\Aspogne\VacuumAI\Environment\obj\Debug\App.g.cs
+C:\Users\rama\Documents\Aspogne\VacuumAI\Environment\obj\Debug\Environment_MarkupCompile.cache
+C:\Users\rama\Documents\Aspogne\VacuumAI\Environment\obj\Debug\Environment_MarkupCompile.lref
+C:\Users\rama\Documents\Aspogne\VacuumAI\Environment\bin\Debug\Environment.exe.config
+C:\Users\rama\Documents\Aspogne\VacuumAI\Environment\bin\Debug\Environment.exe
+C:\Users\rama\Documents\Aspogne\VacuumAI\Environment\bin\Debug\Environment.pdb
+C:\Users\rama\Documents\Aspogne\VacuumAI\Environment\obj\Debug\Square.baml
+C:\Users\rama\Documents\Aspogne\VacuumAI\Environment\obj\Debug\MainWindow.baml
+C:\Users\rama\Documents\Aspogne\VacuumAI\Environment\obj\Debug\Environment.g.resources
+C:\Users\rama\Documents\Aspogne\VacuumAI\Environment\obj\Debug\Environment.Properties.Resources.resources
+C:\Users\rama\Documents\Aspogne\VacuumAI\Environment\obj\Debug\Environment.csproj.GenerateResource.Cache
+C:\Users\rama\Documents\Aspogne\VacuumAI\Environment\obj\Debug\Environment.exe
+C:\Users\rama\Documents\Aspogne\VacuumAI\Environment\obj\Debug\Environment.pdb
+C:\Users\rama\Documents\Aspogne\VacuumAI\Environment\obj\Debug\Environment.csprojResolveAssemblyReference.cache

@@ -20,7 +20,10 @@ namespace Environment
         private static Grid m_gEnvironnement = new Grid();
         private static int nDust = 0;
         private static int nJewel = 0;
-        //private Timer aTimer = new Timer(10000);
+        private int coeff = 3;
+
+        private System.Windows.Threading.DispatcherTimer aTimer ;
+
 
         public MainWindow()
         {
@@ -46,13 +49,23 @@ namespace Environment
 
             PopulateSquare();
 
-            /* aTimer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
-             aTimer.AutoReset = true;
-             aTimer.Enabled = true;*/
 
-            m_lGameSquare[0].HasDust = true;
-            AddDust(1);
+            aTimer = new System.Windows.Threading.DispatcherTimer();
+            
+            //Set the method to handle the tick
+            aTimer.Tick += new EventHandler(dispatcherTimer_Tick);
+            //Set in hour, minutes, second interval of the tick
+            aTimer.Interval = new TimeSpan(0, 0, 2);
+            //Let's goooo :
+            aTimer.Start();
+
             Content = m_gEnvironnement;
+        }
+
+        //The following method handle each tick of the DispatchedTimer
+        private void dispatcherTimer_Tick(object sender, EventArgs e)
+        {
+            GenerateObjects(coeff);
         }
 
         /// <summary>
@@ -97,7 +110,7 @@ namespace Environment
             }
         }
 
-        /*private void MoveVacuum(int m_pCurrentLocation, int m_pDestination)
+        private void MoveVacuum(int m_pCurrentLocation, int m_pDestination)
         {
             try
             {
@@ -116,7 +129,7 @@ namespace Environment
             {
                 Trace.Write(ex.Message);
             }
-        }*/
+        }
 
         private static void AddDust(int DustLocation)
         {
@@ -132,22 +145,13 @@ namespace Environment
 
         private void OnTimedEvent(object source, ElapsedEventArgs e)
         {
+            string lol = "let's go for some real debugg";
             GenerateObjects(2);
         }
 
         public void GenerateObjects(int factors)
         {
 
-            /*
-             * 
-             * USED FOR TEST PURPOSE.
-             * 
-             * */
-            AddDust(5);
-
-
-
-            /*
             Random rand = new Random();
             int index = rand.Next(0, 13);
 
@@ -155,6 +159,7 @@ namespace Environment
             {
                 if ((nDust / (nJewel + 1)) <= factors)
                 {
+                    AddDust(index);
                 }
                 else
                 {
@@ -165,7 +170,7 @@ namespace Environment
             {
                 index = rand.Next(0, 13);
             }
-            */
+
         }
 
     }

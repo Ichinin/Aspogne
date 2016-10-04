@@ -52,47 +52,6 @@ namespace MainProgram
                 }
             }
         }
-
-
-        private static void ThreadStartingPoint()
-        {
-            MainWindow window = new MainWindow();
-
-            EnvTimer aTimer = new EnvTimer(1000, window);
-            aTimer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
-            aTimer.AutoReset = true;
-            aTimer.Enabled = true;
-            aTimer.Start();
-
-
-            window.Show();
-            System.Windows.Threading.Dispatcher.Run();
-
-            /*while (true)
-            {
-
-                MainWindow.GenerateObjects(2);
-
-                Thread.Sleep(10000);
-
-            }*/
-
-        }
-
-        private static void OnTimedEvent(object source, ElapsedEventArgs e)
-        {
-            
-            EnvTimer x = source as EnvTimer;
-            //x.Enabled = false;
-            x.Windows.GenerateObjects(2);
-            x.Windows.UpdateLayout();
-            x.Enabled = true;
-
-
-            //MainWindow.GenerateObjects(2);
-        }
-
-
     }
 
 

@@ -104,7 +104,7 @@ namespace Environment
             HasVacuum = false;
         }
 
-        /*public void AddDust(bool value)
+        public void AddDust(bool value)
         {
             UIElement uieSquare = SquareGrid.Children.Cast<UIElement>().First(e => Grid.GetRow(e) == 1 && Grid.GetColumn(e) == 0);
             uieSquare.Visibility = value ? Visibility.Visible : Visibility.Hidden;
@@ -133,6 +133,6 @@ namespace Environment
         public void RemoveVacuum()
         {
             HasVacuum = false;
-        }*/
+        }
     }
 }
