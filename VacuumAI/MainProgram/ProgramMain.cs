@@ -15,7 +15,7 @@ namespace MainProgram
         public static void Main(string[] args)
         {
             Thread monthreadEnvironnement = new Thread(new ThreadStart(ThreadEnvStartingPoint));
-            //monthreadEnvironnement.SetApartmentState(ApartmentState.STA);
+            monthreadEnvironnement.SetApartmentState(ApartmentState.STA);
             monthreadEnvironnement.Start();
 
             // Start a new thread with a a vacuum.
@@ -31,6 +31,7 @@ namespace MainProgram
         {
             MainWindow window = new MainWindow();
             window.Show();
+            System.Windows.Threading.Dispatcher.Run();
         }
     }
 
