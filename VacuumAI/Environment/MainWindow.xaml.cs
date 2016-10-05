@@ -1,30 +1,45 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Timers;
 using System.Windows;
 using System.Windows.Controls;
-
+using System.Windows.Threading;
 
 namespace Environment
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for MainWindow.xaml.
     /// </summary>
     public partial class MainWindow : Window
     {
-        // Contains the 15 squares of the game, labeled 0 to 14
-        private static List<Square> m_lGameSquare = new List<Square>();
-
-        // Creation of a grid to act as the game set
+        /// <summary>
+        /// Contains the 15 squares of the game, labeled 0 to 14.
+        /// </summary>
+        private static List<Square> m_lsGameSquare = new List<Square>();
+        /// <summary>
+        /// Creation of a grid to act as the game set.
+        /// </summary>
         private static Grid m_gEnvironnement = new Grid();
-        private static int nDust = 0;
-        private static int nJewel = 0;
-        private int coeff = 3;
+        /// <summary>
+        /// Store the number of dust on the environment.
+        /// </summary>
+        private static int m_iDustNumber = 0;
+        /// <summary>
+        /// Store the number of jewel on the environment.
+        /// </summary>
+        private static int m_iJewelNumber = 0;
+        /// <summary>
+        /// Ration between the dust and jewel.
+        /// </summary>
+        private int m_iDustJewelRatio = 3;
+        /// <summary>
+        /// Timer usef for the environment generation.
+        /// </summary>
+        private DispatcherTimer m_dtTimer ;
 
-        private System.Windows.Threading.DispatcherTimer aTimer ;
-
-
+        /// <summary>
+        /// Build an new WPF Mainwindow.
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();
@@ -49,23 +64,22 @@ namespace Environment
 
             PopulateSquare();
 
-
-            aTimer = new System.Windows.Threading.DispatcherTimer();
-            
-            //Set the method to handle the tick
-            aTimer.Tick += new EventHandler(dispatcherTimer_Tick);
-            //Set in hour, minutes, second interval of the tick
-            aTimer.Interval = new TimeSpan(0, 0, 2);
-            //Let's goooo :
-            aTimer.Start();
-
             Content = m_gEnvironnement;
+
+            m_dtTimer = new System.Windows.Threading.DispatcherTimer();
+            m_dtTimer.Tick += new EventHandler(dispatcherTimer_Tick);
+            m_dtTimer.Interval = new TimeSpan(0, 0, 2);
+            m_dtTimer.Start();
         }
 
-        //The following method handle each tick of the DispatchedTimer
+        /// <summary>
+        /// The following method handle each tick of the DispatchedTimer.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dispatcherTimer_Tick(object sender, EventArgs e)
         {
-            GenerateObjects(coeff);
+            GenerateObjects(m_iDustJewelRatio);
         }
 
         /// <summary>
@@ -79,7 +93,7 @@ namespace Environment
                 for (int i = 0; i < 15; i++)
                 {
                     Square m_sGameSquare = new Square();
-                    m_lGameSquare.Add(m_sGameSquare);
+                    m_lsGameSquare.Add(m_sGameSquare);
                 }
 
                 /* Creates a UserControl "Square" in each cell of the environnement
@@ -90,15 +104,15 @@ namespace Environment
                     for (int j = 0; j < 5; j++)
                     {
                         // Adds a Square in the cell (i,j)
-                        Grid.SetRow(m_lGameSquare[k], i);
-                        Grid.SetColumn(m_lGameSquare[k], j);
+                        Grid.SetRow(m_lsGameSquare[k], i);
+                        Grid.SetColumn(m_lsGameSquare[k], j);
 
-                        m_gEnvironnement.Children.Add(m_lGameSquare[k]);
+                        m_gEnvironnement.Children.Add(m_lsGameSquare[k]);
 
                         // Remove everything from the 4 squares that aren't part of the environnement
                         if ((k == 3 || k == 4 || k == 13 || k == 14))
                         {
-                            m_lGameSquare[k].BorderThickness = new Thickness(1000);
+                            m_lsGameSquare[k].BorderThickness = new Thickness(1000);
                         }
                         k++;
                     }
@@ -110,6 +124,12 @@ namespace Environment
             }
         }
 
+        /// <summary>
+        /// Move the vacuum.
+        /// </summary>
+        /// <param name="m_pCurrentLocation"></param>
+        /// <param name="m_pDestination"></param>
+        /*
         private void MoveVacuum(int m_pCurrentLocation, int m_pDestination)
         {
             try
@@ -130,34 +150,40 @@ namespace Environment
                 Trace.Write(ex.Message);
             }
         }
+        */
 
-        private static void AddDust(int DustLocation)
+        /// <summary>
+        /// Add dust on the square number DustLocation.
+        /// </summary>
+        /// <param name="p_iDustLocation"> Case location to add some dust. </param>
+        private static void AddDust(int p_iDustLocation)
         {
-            m_lGameSquare[DustLocation].HasDust = true;
-            nDust += 1;
+            m_lsGameSquare[p_iDustLocation].HasDust = true;
+            m_iDustNumber++;
         }
 
-        private static void AddJewel(int JewelLocation)
+        /// <summary>
+        /// Add a jewel on the square number JewelLocation.
+        /// </summary>
+        /// <param name="p_iJewelLocation"> Square location to add some jewel. </param>
+        private static void AddJewel(int p_iJewelLocation)
         {
-            m_lGameSquare[JewelLocation].HasJewel = true;
-            nJewel += 1;
+            m_lsGameSquare[p_iJewelLocation].HasJewel = true;
+            m_iJewelNumber++;
         }
 
-        private void OnTimedEvent(object source, ElapsedEventArgs e)
+        /// <summary>
+        /// Generate dust or jewel with a specified ratio.
+        /// </summary>
+        /// <param name="p_iDustJewelRatio"> Ration between dust and jewel. A ration of two means we'll have 2 times more dust than jewel. </param>
+        private void GenerateObjects(int p_iDustJewelRatio)
         {
-            string lol = "let's go for some real debugg";
-            GenerateObjects(2);
-        }
-
-        public void GenerateObjects(int factors)
-        {
-
             Random rand = new Random();
             int index = rand.Next(0, 13);
 
             if ((index != 3) && (index != 4))
             {
-                if ((nDust / (nJewel + 1)) <= factors)
+                if ((m_iDustNumber / (m_iJewelNumber + 1)) <= p_iDustJewelRatio)
                 {
                     AddDust(index);
                 }
@@ -170,7 +196,6 @@ namespace Environment
             {
                 index = rand.Next(0, 13);
             }
-
         }
 
     }

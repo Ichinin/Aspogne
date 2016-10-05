@@ -3,6 +3,9 @@ using System.Threading;
 
 namespace VacuumRobot
 {
+    /// <summary>
+    /// Create a new RobotAI.
+    /// </summary>
     public class RobotAI
     {
         /// <summary>
@@ -123,7 +126,7 @@ namespace VacuumRobot
 
         public void ChooseAnAction()
         {
-
+            // TODO ..
         }
 
     }

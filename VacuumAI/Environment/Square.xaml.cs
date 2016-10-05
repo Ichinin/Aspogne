@@ -1,17 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Environment
 {
@@ -20,12 +9,21 @@ namespace Environment
     /// </summary>
     public partial class Square : UserControl
     {
+        /// <summary>
+        /// Boolean to notify the presence or absence of dust.
+        /// </summary>
         private bool m_bHasDust;
+        /// <summary>
+        /// Boolean to notify the presence or absence of jewel.
+        /// </summary>
         private bool m_bHasJewel;
+        /// <summary>
+        /// Boolean to notify the presence or absence of vacuum.
+        /// </summary>
         private bool m_bHasVacuum;
 
         /// <summary>
-        /// 
+        /// Get / set the presence or absence of the vacuum on the square.
         /// </summary>
         public bool HasVacuum
         {
@@ -35,14 +33,13 @@ namespace Environment
             }
             set
             {
-                UIElement uieSquare = SquareGrid.Children.Cast<UIElement>().First(e => Grid.GetRow(e) == 0 && Grid.GetColumn(e) == 0);
-                uieSquare.Visibility = value ? Visibility.Visible : Visibility.Hidden;
                 m_bHasVacuum = value;
+                vacuum.Visibility = value ? Visibility.Visible : Visibility.Hidden;
             }
         }
 
         /// <summary>
-        /// 
+        /// Get / set the presence or absence of jewels on the square.
         /// </summary>
         public bool HasJewel
         {
@@ -52,14 +49,13 @@ namespace Environment
             }
             set
             {
-                UIElement uieSquare = SquareGrid.Children.Cast<UIElement>().First(e => Grid.GetRow(e) == 1 && Grid.GetColumn(e) == 1);
-                uieSquare.Visibility = value ? Visibility.Visible : Visibility.Hidden;
                 m_bHasJewel = value;
+                jewel.Visibility = value ? Visibility.Visible : Visibility.Hidden;
             }
         }
 
         /// <summary>
-        /// 
+        /// Get / set the presence or absence of dust on the square.
         /// </summary>
         public bool HasDust
         {
@@ -70,31 +66,12 @@ namespace Environment
             set
             {
                 m_bHasDust = value;
-
-                if (value == true )
-                {
-                    Dust.Visibility = Visibility.Visible;
-                    
-                }
-                else
-                {
-                    Dust.Visibility = Visibility.Hidden;
-                }
-
-
-                //Dust.Visibility = value ? Visibility.Visible : Visibility.Hidden;
-
-                /*int a = 0;
-                a++;*/
-
-                //UIElement uieSquare = SquareGrid.Children.Cast<UIElement>().First(e => Grid.GetRow(e) == 1 && Grid.GetColumn(e) == 0);
-                //uieSquare.Visibility = value ? Visibility.Visible : Visibility.Hidden;
-
+                dust.Visibility = value ? Visibility.Visible : Visibility.Hidden;
             }
         }
 
         /// <summary>
-        /// 
+        /// Create a new square with no dust, jewel or vacuum.
         /// </summary>
         public Square()
         {
@@ -104,35 +81,5 @@ namespace Environment
             HasVacuum = false;
         }
 
-        public void AddDust(bool value)
-        {
-            UIElement uieSquare = SquareGrid.Children.Cast<UIElement>().First(e => Grid.GetRow(e) == 1 && Grid.GetColumn(e) == 0);
-            uieSquare.Visibility = value ? Visibility.Visible : Visibility.Hidden;
-        }
-
-        public void RemoveDust()
-        {
-            HasDust = false;
-        }
-
-        public void AddJewel()
-        {
-            HasJewel = true;
-        }
-
-        public void RemoveJewel()
-        {
-            HasJewel = false;
-        }
-
-        public void AddVacuum()
-        {
-            HasVacuum = true;
-        }
-
-        public void RemoveVacuum()
-        {
-            HasVacuum = false;
-        }
     }
 }
