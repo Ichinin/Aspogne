@@ -1,24 +1,31 @@
-﻿namespace MainProgram
+﻿using System;
+using System.Threading;
+
+namespace MainProgram
 {
     /// <summary>
     /// Defines the class of action that our agent may undertake
     /// Each subclass defines its own premises and consequences.
     /// </summary>
-    public class ActionPossible
+    public abstract class ActionPossible
     {
-        private string m_sName;
+        private string m_sName = "toto";
+        private VacuumRobot.RobotAI m_RobotAI;
 
-        public string Name
+        public ActionPossible(VacuumRobot.RobotAI p_RobotAI)
         {
+            m_RobotAI = p_RobotAI;
+        }
+
+        public abstract string Name();
+        /*{
             get
             {
                 return m_sName;
             }
-        }
+        }*/
 
-        private void Act()
-        {
-        }
+        public abstract void Act();
     }
 
     /// <summary>
@@ -27,9 +34,22 @@
     public class Aspirate : ActionPossible
     {
         private string m_sName = "Aspirate";
+        private VacuumRobot.RobotAI m_RobotAI;
 
-        private void Act()
+        public override string Name()
         {
+            
+                return m_sName;
+            
+        }
+
+        public Aspirate(VacuumRobot.RobotAI p_RobotAI) : base(p_RobotAI)
+        {
+        }
+
+        public override void Act()
+        {
+            m_RobotAI.RemoveDust();
         }
     }
 
@@ -39,9 +59,23 @@
     public class MoveRobot : ActionPossible
     {
         private string m_sName = "MoveRobot";
+        private VacuumRobot.RobotAI m_RobotAI;
 
-        private void Act()
+        public override string Name()
         {
+            /*get
+            {*/
+                return m_sName;
+            //}
+        }
+
+        public MoveRobot(VacuumRobot.RobotAI p_RobotAI) : base(p_RobotAI)
+        {
+        }
+
+        public override void Act()
+        {
+            m_RobotAI.Move();
         }
     }
 
@@ -51,9 +85,24 @@
     public class Grab : ActionPossible
     {
         private string m_sName = "Grab";
+        private VacuumRobot.RobotAI m_RobotAI;
 
-        private void Act()
+        public override string Name()
         {
+            /*get
+            {*/
+                return m_sName;
+            //}
+        }
+
+
+        public Grab(VacuumRobot.RobotAI p_RobotAI) : base(p_RobotAI)
+        {
+        }
+
+        public override void Act()
+        {
+            m_RobotAI.RemoveJewel();
         }
     }
 
@@ -63,9 +112,24 @@
     public class DoNothing : ActionPossible
     {
         private string m_sName = "DoNothing";
+        private VacuumRobot.RobotAI m_RobotAI;
 
-        private void Act()
+        public override string Name()
         {
+            /*get
+            {*/
+            return m_sName;
+            //}
+        }
+
+        public DoNothing(VacuumRobot.RobotAI p_RobotAI) : base(p_RobotAI)
+        {
+        }
+
+        public override void Act()
+        {
+            Thread.Sleep(500);
+            Console.Write("do nothing");
         }
     }
 }

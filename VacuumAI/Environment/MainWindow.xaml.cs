@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Threading;
@@ -15,7 +14,7 @@ namespace Environment
         /// <summary>
         /// Contains the 15 squares of the game, labeled 0 to 14.
         /// </summary>
-        private static List<Square> m_lsGameSquare = new List<Square>();
+        public static List<Square> m_lsGameSquare = new List<Square>();
         /// <summary>
         /// Creation of a grid to act as the game set.
         /// </summary>
@@ -35,7 +34,7 @@ namespace Environment
         /// <summary>
         /// Timer usef for the environment generation.
         /// </summary>
-        private DispatcherTimer m_dtTimer ;
+        private DispatcherTimer m_dtTimer;
 
         /// <summary>
         /// Build an new WPF Mainwindow.
@@ -66,7 +65,7 @@ namespace Environment
 
             Content = m_gEnvironnement;
 
-            m_dtTimer = new System.Windows.Threading.DispatcherTimer();
+            m_dtTimer = new DispatcherTimer();
             m_dtTimer.Tick += new EventHandler(dispatcherTimer_Tick);
             m_dtTimer.Interval = new TimeSpan(0, 0, 2);
             m_dtTimer.Start();
@@ -83,74 +82,39 @@ namespace Environment
         }
 
         /// <summary>
-        /// Creates a list of 15 Squares, and address one to each cell of the environnement (0->14)
+        /// Creates a list of 15 Squares, and address one to each cell of the environnement (0 -> 14).
         /// </summary>
         private void PopulateSquare()
         {
-            try
+            // Adds 15 Square instances in the list
+            for (int i = 0; i < 15; i++)
             {
-                // Adds 15 Square instances in the list
-                for (int i = 0; i < 15; i++)
-                {
-                    Square m_sGameSquare = new Square();
-                    m_lsGameSquare.Add(m_sGameSquare);
-                }
-
-                /* Creates a UserControl "Square" in each cell of the environnement
-                 * We increment k to address a different index of m_lGameSquare to each cell */
-                int k = 0;
-                for (int i = 0; i < 3; i++)
-                {
-                    for (int j = 0; j < 5; j++)
-                    {
-                        // Adds a Square in the cell (i,j)
-                        Grid.SetRow(m_lsGameSquare[k], i);
-                        Grid.SetColumn(m_lsGameSquare[k], j);
-
-                        m_gEnvironnement.Children.Add(m_lsGameSquare[k]);
-
-                        // Remove everything from the 4 squares that aren't part of the environnement
-                        if ((k == 3 || k == 4 || k == 13 || k == 14))
-                        {
-                            m_lsGameSquare[k].BorderThickness = new Thickness(1000);
-                        }
-                        k++;
-                    }
-                }
+                Square m_sGameSquare = new Square(i);
+                m_lsGameSquare.Add(m_sGameSquare);
             }
-            catch (Exception ex)
+
+            /* Creates a UserControl "Square" in each cell of the environnement
+             * We increment k to address a different index of m_lGameSquare to each cell */
+            int k = 0;
+            for (int i = 0; i < 3; i++)
             {
-                Trace.Write(ex.Message);
+                for (int j = 0; j < 5; j++)
+                {
+                    // Adds a Square in the cell (i,j)
+                    Grid.SetRow(m_lsGameSquare[k], i);
+                    Grid.SetColumn(m_lsGameSquare[k], j);
+
+                    m_gEnvironnement.Children.Add(m_lsGameSquare[k]);
+
+                    // Remove everything from the 4 squares that aren't part of the environnement
+                    if ((k == 3 || k == 4 || k == 13 || k == 14))
+                    {
+                        m_lsGameSquare[k].BorderThickness = new Thickness(1000);
+                    }
+                    k++;
+                }
             }
         }
-
-        /// <summary>
-        /// Move the vacuum.
-        /// </summary>
-        /// <param name="m_pCurrentLocation"></param>
-        /// <param name="m_pDestination"></param>
-        /*
-        private void MoveVacuum(int m_pCurrentLocation, int m_pDestination)
-        {
-            try
-            {
-                if ((0 <= m_pCurrentLocation) && (m_pCurrentLocation <= 14) &&
-                    (0 <= m_pDestination) && (m_pDestination <= 14)
-                    )
-                {
-                    if (!((m_pDestination == 3) && (m_pDestination == 4) && (m_pDestination == 14) && (m_pDestination == 13)))
-                    {
-                        m_lGameSquare[m_pCurrentLocation].RemoveVacuum();
-                        m_lGameSquare[m_pDestination].AddVacuum();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Trace.Write(ex.Message);
-            }
-        }
-        */
 
         /// <summary>
         /// Add dust on the square number DustLocation.
@@ -158,8 +122,11 @@ namespace Environment
         /// <param name="p_iDustLocation"> Case location to add some dust. </param>
         private static void AddDust(int p_iDustLocation)
         {
-            m_lsGameSquare[p_iDustLocation].HasDust = true;
-            m_iDustNumber++;
+            if (!(m_lsGameSquare[p_iDustLocation].HasVacuum))
+            {
+                m_lsGameSquare[p_iDustLocation].HasDust = true;
+                m_iDustNumber++;
+            }
         }
 
         /// <summary>
@@ -168,6 +135,11 @@ namespace Environment
         /// <param name="p_iJewelLocation"> Square location to add some jewel. </param>
         private static void AddJewel(int p_iJewelLocation)
         {
+            if (!(m_lsGameSquare[p_iJewelLocation].HasVacuum))
+            {
+                m_lsGameSquare[p_iJewelLocation].HasJewel = true;
+                m_iJewelNumber++;
+            }
             m_lsGameSquare[p_iJewelLocation].HasJewel = true;
             m_iJewelNumber++;
         }

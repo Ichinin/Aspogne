@@ -1,6 +1,8 @@
 ﻿using Environment;
 using MainProgram;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 
 namespace VacuumRobot
@@ -8,7 +10,7 @@ namespace VacuumRobot
     /// <summary>
     /// Create a new RobotAI.
     /// </summary>
-    public class RobotAI
+    public partial class RobotAI
     {
         /// <summary>
         /// Name of the robot.
@@ -27,17 +29,6 @@ namespace VacuumRobot
         /// Current index in the m_asPathArray array.
         /// </summary>
         private int m_iCurrentPositionIndex = 0;
-
-        /// <summary>
-        /// Set the number of points.
-        /// </summary>
-        public int PointsCount
-        {
-            set
-            {
-                m_iPointsCount = value;
-            }
-        }
 
         /// <summary>
         /// Create a new robot AI.
@@ -67,27 +58,6 @@ namespace VacuumRobot
         }
 
         /// <summary>
-        /// Move the robot to the next square in m_asPathArray.
-        /// </summary>
-        public void Move()
-        {
-            if (m_asPathArray != null)
-            {
-                m_asPathArray[m_iCurrentPositionIndex].HasVacuum = false;
-                if (m_iCurrentPositionIndex < m_asPathArray.Length)
-                {
-                    m_iCurrentPositionIndex++;
-                }
-                else
-                {
-                    m_iCurrentPositionIndex = 0;
-                }
-                m_iPointsCount--;
-                m_asPathArray[m_iCurrentPositionIndex].HasVacuum = true;
-            }
-        }
-
-        /// <summary>
         /// Return the current state of the Environment from the robot's point of view.
         /// The state of the Environment can return the following values :
         /// 0 : Nothing on the Square.
@@ -96,47 +66,70 @@ namespace VacuumRobot
         /// 3 : Both dust and jewel on the Square.
         /// </summary>
         /// <returns> Return an int array as followed [Index of the current Square, State of the current Square]. </returns>
-        public int[] EnvironmentState()
+        public int[] GetEnvironmentState()
         {
             bool bDust = Sensor.HasDust(m_asPathArray[m_iCurrentPositionIndex]);
             bool bJewel = Sensor.HasJewel(m_asPathArray[m_iCurrentPositionIndex]);
 
             int iResultState = 0;
 
-            if ((bDust == true) && (bJewel = false))
+            if ((bDust == true) && (bJewel == false))
             {
                 iResultState = 1;
             }
-            if ((bDust == false) && (bJewel = true))
+            if ((bDust == false) && (bJewel == true))
             {
                 iResultState = 2;
             }
-            if ((bDust == true) && (bJewel = true))
+            if ((bDust == true) && (bJewel == true))
             {
                 iResultState = 3;
             }
 
             int[] aiResult = { m_iCurrentPositionIndex, iResultState };
-
             return aiResult;
+        }
+
+        /// <summary>
+        /// Move the robot to the next square in m_asPathArray.
+        /// </summary>
+        public void Move()
+        {
+            if (m_asPathArray != null)
+            {
+                m_asPathArray[m_iCurrentPositionIndex].HasVacuum = false;
+
+                if (m_iCurrentPositionIndex < (m_asPathArray.Length - 1))
+                {
+                    m_iCurrentPositionIndex++;
+                    Console.Write("Robot moving from square " + m_asPathArray[m_iCurrentPositionIndex - 1].NumSquare +
+                    " to square " + m_asPathArray[m_iCurrentPositionIndex].NumSquare + "\n");
+                }
+                else
+                {
+                    Console.Write("Robot moving from square " + m_asPathArray[m_iCurrentPositionIndex].NumSquare +
+                    " to square " + m_asPathArray[0].NumSquare + "\n");
+                    m_iCurrentPositionIndex = 0;
+                }
+                m_iPointsCount--;
+                Console.Write("Arrived in new room. New points count : " + m_iPointsCount + "\n");
+                m_asPathArray[m_iCurrentPositionIndex].HasVacuum = true;
+            }
         }
 
         /// <summary>
         /// Remove dust from the current square.
         /// </summary>
-        public void removeDust()
+        public void RemoveDust()
         {
-            int iTimerIndex = 0;
-            while (iTimerIndex < 50)
-            {
-                Actuator.PickUpDust(m_asPathArray[m_iCurrentPositionIndex]);
-                Actuator.PickUpJewel(m_asPathArray[m_iCurrentPositionIndex]);
-                Thread.Sleep(20);
-                iTimerIndex++;
-            }
+            Console.Write("Hoovering in progress...\n");
+            Thread.Sleep(500);
+            Actuator.PickUpDust(m_asPathArray[m_iCurrentPositionIndex]);
+            Actuator.PickUpJewel(m_asPathArray[m_iCurrentPositionIndex]);
             // Add 2 points and remove 1 for action.
             //m_iPointsCount--;
             m_iPointsCount++;
+            Console.Write("Hoovering done. New points count : "+ m_iPointsCount + "\n");
         }
 
         /// <summary>
@@ -144,10 +137,13 @@ namespace VacuumRobot
         /// </summary>
         public void RemoveJewel()
         {
+            Console.Write("Picking up jewels...\n");
+            Thread.Sleep(500);
             Actuator.PickUpJewel(m_asPathArray[m_iCurrentPositionIndex]);
             // Add 4 points and remove 1 for action.
             //m_iPointsCount--;
             m_iPointsCount = m_iPointsCount + 3;
+            Console.Write("Picking jewels done. New points count : " + m_iPointsCount + "\n");
         }
 
         /// <summary>
@@ -155,18 +151,18 @@ namespace VacuumRobot
         /// </summary>
         /// <param name="p_iStateEnv"> The current state of the environment. </param>
         /// <returns> The list of every action possible for the agent. </returns>
-        public List<ActionPossible> actionDeclenchable(int[] p_iStateEnv)
+        public List<ActionPossible> ActionDeclenchable(int[] p_iStateEnv)
         {
             // Declares the four possible actions, and add them to the list of possible actions.
-            ActionPossible aActToSuck = new Aspirate();
-            ActionPossible aActToMove = new MoveRobot();
-            ActionPossible aActToGrab = new Grab();
-            ActionPossible aActToDoNothing = new DoNothing();
-            List<ActionPossible> aListActionPossible = null;
-            aListActionPossible.Add(aActToSuck);
-            aListActionPossible.Add(aActToMove);
-            aListActionPossible.Add(aActToGrab);
-            aListActionPossible.Add(aActToDoNothing);
+            ActionPossible apActToSuck = new Aspirate(this);
+            ActionPossible apActToMove = new MoveRobot(this);
+            ActionPossible apActToGrab = new Grab(this);
+            ActionPossible apActToDoNothing = new DoNothing(this);
+            List<ActionPossible> aListActionPossible = new List<ActionPossible>();
+            aListActionPossible.Add(apActToSuck);
+            aListActionPossible.Add(apActToMove);
+            aListActionPossible.Add(apActToGrab);
+            aListActionPossible.Add(apActToDoNothing);
 
             // If the environment is composed of dust only.
             if (p_iStateEnv[1] == 0)
@@ -208,7 +204,7 @@ namespace VacuumRobot
         public ActionPossible DetermineActionUponMyGoal(int[] p_iStateEnv, int p_iMyGoal)
         {
             // This list contains each possible action for the agent, regardless of their relevance
-            List<ActionPossible> lapListActionPossible = actionDeclenchable(p_iStateEnv);
+            List<ActionPossible> lapListActionPossible = ActionDeclenchable(p_iStateEnv);
 
             // Initialises the index used to keep track of the best action to perform.
             int iIndexActionToDo = -1;
@@ -228,6 +224,11 @@ namespace VacuumRobot
             return lapListActionPossible[iIndexActionToDo];
         }
 
+        public void DoAction(ActionPossible p_apAction )
+        {
+            p_apAction.Act();
+        }
+
         /// <summary>
         /// Calculate the worthiness of an action, based on the parameters given.
         /// </summary>
@@ -238,112 +239,109 @@ namespace VacuumRobot
         public int CalculateWorthiness(ActionPossible p_apAction, int p_iMyGoal, int[] p_aiStateEnv)
         {
             // Initialises several counter for worthiness, each associated with a different goal
-            int iWorthinessRegardingJewels = -1;
-            int iWorthinessRegardingElectricity = -1;
-            int iWorthinessRegardingCleanliness = -1;
+            int iWorthinessRegardingJewelsAndCleanliness = -1;
+            int iWorthinessRegardingSpeed = -1;
+            int iWorthinessRegardingElectricitySave = -1;
 
             /* Depending on the state of the environment and the goal, we logically attibute a number of point to each counter
              * This way, a particularly interesting action to perform will be set a high value of worthiness */
             switch (p_aiStateEnv[1])
             {
-                // If there is dust only
+                // If there is nothing on the Square.
                 case 0:
-                    if (p_apAction.Name == "Aspirate")
+                    if (p_apAction.Name() == "Aspirate")
                     {
-                        iWorthinessRegardingJewels = 5; iWorthinessRegardingElectricity = 1; iWorthinessRegardingCleanliness = 5;
+                        iWorthinessRegardingJewelsAndCleanliness = 0; iWorthinessRegardingElectricitySave = 0; iWorthinessRegardingSpeed = 0;
                     }
-                    if (p_apAction.Name == "MoveRobot")
+                    if (p_apAction.Name() == "MoveRobot")
                     {
-                        iWorthinessRegardingJewels = 0; iWorthinessRegardingElectricity = 0; iWorthinessRegardingCleanliness = 0;
+                        iWorthinessRegardingJewelsAndCleanliness = 3; iWorthinessRegardingElectricitySave = 0; iWorthinessRegardingSpeed = 3;
                     }
-                    if (p_apAction.Name == "Grab")
+                    if (p_apAction.Name() == "Grab")
                     {
-                        iWorthinessRegardingJewels = 1; iWorthinessRegardingElectricity = 1; iWorthinessRegardingCleanliness = 3;
+                        iWorthinessRegardingJewelsAndCleanliness = 0; iWorthinessRegardingElectricitySave = 0; iWorthinessRegardingSpeed = 0;
                     }
-                    if (p_apAction.Name == "DoNothing")
+                    if (p_apAction.Name() == "DoNothing")
                     {
-                        iWorthinessRegardingJewels = 0; iWorthinessRegardingElectricity = 5; iWorthinessRegardingCleanliness = 0;
+                        iWorthinessRegardingJewelsAndCleanliness = 0; iWorthinessRegardingElectricitySave = 5; iWorthinessRegardingSpeed = 0;
                     }
                     break;
-                // If there is jewels only
+                // If there is dust only.
                 case 1:
-                    if (p_apAction.Name == "Aspirate")
+                    if (p_apAction.Name() == "Aspirate")
                     {
-                        iWorthinessRegardingJewels = 0; iWorthinessRegardingElectricity = 1; iWorthinessRegardingCleanliness = 3;
+                        iWorthinessRegardingJewelsAndCleanliness = 0; iWorthinessRegardingElectricitySave = 1; iWorthinessRegardingSpeed = 3;
                     }
-                    if (p_apAction.Name == "MoveRobot")
+                    if (p_apAction.Name() == "MoveRobot")
                     {
-                        iWorthinessRegardingJewels = 0; iWorthinessRegardingElectricity = 0; iWorthinessRegardingCleanliness = 0;
+                        iWorthinessRegardingJewelsAndCleanliness = 0; iWorthinessRegardingElectricitySave = 0; iWorthinessRegardingSpeed = 0;
                     }
-                    if (p_apAction.Name == "Grab")
+                    if (p_apAction.Name() == "Grab")
                     {
-                        iWorthinessRegardingJewels = 5; iWorthinessRegardingElectricity = 1; iWorthinessRegardingCleanliness = 3;
+                        iWorthinessRegardingJewelsAndCleanliness = 5; iWorthinessRegardingElectricitySave = 1; iWorthinessRegardingSpeed = 3;
                     }
-                    if (p_apAction.Name == "DoNothing")
+                    if (p_apAction.Name() == "DoNothing")
                     {
-                        iWorthinessRegardingJewels = 0; iWorthinessRegardingElectricity = 5; iWorthinessRegardingCleanliness = 0;
+                        iWorthinessRegardingJewelsAndCleanliness = 0; iWorthinessRegardingElectricitySave = 5; iWorthinessRegardingSpeed = 0;
                     }
                     break;
-                // If there both dust and jewels
+                // If there are jewels only.
                 case 2:
-                    if (p_apAction.Name == "Aspirate")
+                    if (p_apAction.Name() == "Aspirate")
                     {
-                        iWorthinessRegardingJewels = 0; iWorthinessRegardingElectricity = 1; iWorthinessRegardingCleanliness = 5;
+                        iWorthinessRegardingJewelsAndCleanliness = 0; iWorthinessRegardingElectricitySave = 1; iWorthinessRegardingSpeed = 5;
                     }
-                    if (p_apAction.Name == "MoveRobot")
+                    if (p_apAction.Name() == "MoveRobot")
                     {
-                        iWorthinessRegardingJewels = 0; iWorthinessRegardingElectricity = 0; iWorthinessRegardingCleanliness = 0;
+                        iWorthinessRegardingJewelsAndCleanliness = 0; iWorthinessRegardingElectricitySave = 0; iWorthinessRegardingSpeed = 0;
                     }
-                    if (p_apAction.Name == "Grab")
+                    if (p_apAction.Name() == "Grab")
                     {
-                        iWorthinessRegardingJewels = 5; iWorthinessRegardingElectricity = 0; iWorthinessRegardingCleanliness = 1;
+                        iWorthinessRegardingJewelsAndCleanliness = 5; iWorthinessRegardingElectricitySave = 0; iWorthinessRegardingSpeed = 1;
                     }
-                    if (p_apAction.Name == "DoNothing")
+                    if (p_apAction.Name() == "DoNothing")
                     {
-                        iWorthinessRegardingJewels = 0; iWorthinessRegardingElectricity = 5; iWorthinessRegardingCleanliness = 0;
+                        iWorthinessRegardingJewelsAndCleanliness = 0; iWorthinessRegardingElectricitySave = 5; iWorthinessRegardingSpeed = 0;
                     }
                     break;
-                // If there is nothing on the square
+                // If there are both jewels and dust.
                 case 3:
-                    if (p_apAction.Name == "Aspirate")
+                    if (p_apAction.Name() == "Aspirate")
                     {
-                        iWorthinessRegardingJewels = 0; iWorthinessRegardingElectricity = 0; iWorthinessRegardingCleanliness = 0;
+                        iWorthinessRegardingJewelsAndCleanliness = 5; iWorthinessRegardingElectricitySave = 1; iWorthinessRegardingSpeed = 5;
                     }
-                    if (p_apAction.Name == "MoveRobot")
+                    if (p_apAction.Name() == "MoveRobot")
                     {
-                        iWorthinessRegardingJewels = 3; iWorthinessRegardingElectricity = 0; iWorthinessRegardingCleanliness = 3;
+                        iWorthinessRegardingJewelsAndCleanliness = 0; iWorthinessRegardingElectricitySave = 0; iWorthinessRegardingSpeed = 0;
                     }
-                    if (p_apAction.Name == "Grab")
+                    if (p_apAction.Name() == "Grab")
                     {
-                        iWorthinessRegardingJewels = 0; iWorthinessRegardingElectricity = 0; iWorthinessRegardingCleanliness = 0;
+                        iWorthinessRegardingJewelsAndCleanliness = 1; iWorthinessRegardingElectricitySave = 1; iWorthinessRegardingSpeed = 3;
                     }
-                    if (p_apAction.Name == "DoNothing")
+                    if (p_apAction.Name() == "DoNothing")
                     {
-                        iWorthinessRegardingJewels = 0; iWorthinessRegardingElectricity = 5; iWorthinessRegardingCleanliness = 0;
+                        iWorthinessRegardingJewelsAndCleanliness = 0; iWorthinessRegardingElectricitySave = 5; iWorthinessRegardingSpeed = 0;
                     }
                     break;
                 default:
                     break;
             }
-            // Then, we return the counter associated with the current goal of the agent
-            int result;
+            // Then, we return the counter associated with the current goal of the agent.
+            int result = -1;
             if (p_iMyGoal == 0)
             {
-                result = iWorthinessRegardingJewels;
+                result = iWorthinessRegardingJewelsAndCleanliness;
             }
             else if (p_iMyGoal == 1)
             {
-                result = iWorthinessRegardingCleanliness;
+                result = iWorthinessRegardingSpeed;
             }
             else if (p_iMyGoal == 2)
             {
-                result = iWorthinessRegardingElectricity;
-            }
-            else
-            {
-                result = -1;
+                result = iWorthinessRegardingElectricitySave;
             }
             return result;
         }
+
     }
 }

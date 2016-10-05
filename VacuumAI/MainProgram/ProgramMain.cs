@@ -19,20 +19,6 @@ namespace MainProgram
             Thread monthreadEnvironnement = new Thread(new ThreadStart(ThreadEnvironmentStartingPoint));
             monthreadEnvironnement.SetApartmentState(ApartmentState.STA);
             monthreadEnvironnement.Start();
-
-            Thread monthreadRobotAI = new Thread(new ThreadStart(ThreadRobotStartingPoint));
-            monthreadRobotAI.SetApartmentState(ApartmentState.STA);
-            monthreadRobotAI.Start();
-
-
-
-
-
-
-            // Start a new thread with a a vacuum.
-            /*MainVacuum.Main();
-            Thread monthreadVacuum = new Thread(new ThreadStart(MainVacuum.Main));
-            monthreadVacuum.Start();*/
         }
 
         /// <summary>
@@ -42,13 +28,26 @@ namespace MainProgram
         {
             MainWindow window = new MainWindow();
             window.Show();
+            Startrobot();
             System.Windows.Threading.Dispatcher.Run();
         }
 
+        /// <summary>
+        /// Function started with the thread monthreadRobotAI.
+        /// </summary>
         private static void ThreadRobotStartingPoint()
         {
             MainVacuum.Main();
+        }
 
+        /// <summary>
+        /// Create a new thread to run the robot.
+        /// </summary>
+        private static void Startrobot()
+        {
+            Thread monthreadRobotAI = new Thread(new ThreadStart(ThreadRobotStartingPoint));
+            monthreadRobotAI.SetApartmentState(ApartmentState.STA);
+            monthreadRobotAI.Start();
         }
     }
 

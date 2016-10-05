@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 
 namespace Environment
@@ -22,6 +21,8 @@ namespace Environment
         /// </summary>
         private bool m_bHasVacuum;
 
+        private int m_iNumSquare;
+
         /// <summary>
         /// Get / set the presence or absence of the vacuum on the square.
         /// </summary>
@@ -34,7 +35,21 @@ namespace Environment
             set
             {
                 m_bHasVacuum = value;
-                vacuum.Visibility = value ? Visibility.Visible : Visibility.Hidden;
+                this.Dispatcher.Invoke(() =>
+                {
+                    vacuum.Visibility = value ? Visibility.Visible : Visibility.Hidden;
+                });
+            }
+        }
+
+        /// <summary>
+        /// Retunr the number of the square.
+        /// </summary>
+        public int NumSquare
+        {
+            get
+            {
+                return m_iNumSquare;
             }
         }
 
@@ -50,7 +65,10 @@ namespace Environment
             set
             {
                 m_bHasJewel = value;
-                jewel.Visibility = value ? Visibility.Visible : Visibility.Hidden;
+                this.Dispatcher.Invoke(() =>
+                {
+                    jewel.Visibility = value ? Visibility.Visible : Visibility.Hidden;
+                });
             }
         }
 
@@ -66,16 +84,21 @@ namespace Environment
             set
             {
                 m_bHasDust = value;
-                dust.Visibility = value ? Visibility.Visible : Visibility.Hidden;
+                this.Dispatcher.Invoke(() =>
+                {
+                    dust.Visibility = value ? Visibility.Visible : Visibility.Hidden;
+                });
             }
         }
 
         /// <summary>
         /// Create a new square with no dust, jewel or vacuum.
         /// </summary>
-        public Square()
+        public Square(int p_iNumSquare)
         {
             InitializeComponent();
+
+            m_iNumSquare = p_iNumSquare;
             HasDust = false;
             HasJewel = false;
             HasVacuum = false;
