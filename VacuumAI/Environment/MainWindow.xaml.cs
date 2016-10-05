@@ -67,7 +67,7 @@ namespace Environment
 
             m_dtTimer = new DispatcherTimer();
             m_dtTimer.Tick += new EventHandler(dispatcherTimer_Tick);
-            m_dtTimer.Interval = new TimeSpan(0, 0, 2);
+            m_dtTimer.Interval = new TimeSpan(0, 0, 1);
             m_dtTimer.Start();
         }
 
@@ -147,7 +147,7 @@ namespace Environment
         /// <summary>
         /// Generate dust or jewel with a specified ratio.
         /// </summary>
-        /// <param name="p_iDustJewelRatio"> Ration between dust and jewel. A ration of two means we'll have 2 times more dust than jewel. </param>
+        /// <param name="p_iDustJewelRatio"> Ratio between dust and jewel. A ration of two means we'll have 2 times more dust than jewel. </param>
         private void GenerateObjects(int p_iDustJewelRatio)
         {
             Random rand = new Random();

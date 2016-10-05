@@ -10,7 +10,7 @@ namespace MainProgram
     public abstract class ActionPossible
     {
         private string m_sName = "toto";
-        private VacuumRobot.RobotAI m_RobotAI;
+        protected VacuumRobot.RobotAI m_RobotAI;
 
         public ActionPossible(VacuumRobot.RobotAI p_RobotAI)
         {
@@ -18,12 +18,6 @@ namespace MainProgram
         }
 
         public abstract string Name();
-        /*{
-            get
-            {
-                return m_sName;
-            }
-        }*/
 
         public abstract void Act();
     }
@@ -34,13 +28,10 @@ namespace MainProgram
     public class Aspirate : ActionPossible
     {
         private string m_sName = "Aspirate";
-        private VacuumRobot.RobotAI m_RobotAI;
 
         public override string Name()
         {
-            
-                return m_sName;
-            
+            return m_sName;
         }
 
         public Aspirate(VacuumRobot.RobotAI p_RobotAI) : base(p_RobotAI)
@@ -49,7 +40,7 @@ namespace MainProgram
 
         public override void Act()
         {
-            m_RobotAI.RemoveDust();
+            m_RobotAI.HooverEverything();
         }
     }
 
@@ -59,14 +50,10 @@ namespace MainProgram
     public class MoveRobot : ActionPossible
     {
         private string m_sName = "MoveRobot";
-        private VacuumRobot.RobotAI m_RobotAI;
 
         public override string Name()
         {
-            /*get
-            {*/
-                return m_sName;
-            //}
+            return m_sName;
         }
 
         public MoveRobot(VacuumRobot.RobotAI p_RobotAI) : base(p_RobotAI)
@@ -85,16 +72,11 @@ namespace MainProgram
     public class Grab : ActionPossible
     {
         private string m_sName = "Grab";
-        private VacuumRobot.RobotAI m_RobotAI;
 
         public override string Name()
         {
-            /*get
-            {*/
-                return m_sName;
-            //}
+            return m_sName;
         }
-
 
         public Grab(VacuumRobot.RobotAI p_RobotAI) : base(p_RobotAI)
         {
@@ -102,7 +84,7 @@ namespace MainProgram
 
         public override void Act()
         {
-            m_RobotAI.RemoveJewel();
+            m_RobotAI.PickUpJewel();
         }
     }
 
@@ -112,14 +94,10 @@ namespace MainProgram
     public class DoNothing : ActionPossible
     {
         private string m_sName = "DoNothing";
-        private VacuumRobot.RobotAI m_RobotAI;
 
         public override string Name()
         {
-            /*get
-            {*/
             return m_sName;
-            //}
         }
 
         public DoNothing(VacuumRobot.RobotAI p_RobotAI) : base(p_RobotAI)
@@ -129,7 +107,6 @@ namespace MainProgram
         public override void Act()
         {
             Thread.Sleep(500);
-            Console.Write("do nothing");
         }
     }
 }
