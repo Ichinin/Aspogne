@@ -6,3 +6,11 @@ C:\Users\NG\Google Drive\Mes documents - pro\UQAC\Intelligence artificielle\Proj
 C:\Users\NG\Google Drive\Mes documents - pro\UQAC\Intelligence artificielle\Projet 1 - Robot aspirateur\VacuumAI\VacuumRobot\bin\x64\Debug\Environment.pdb
 C:\Users\NG\Google Drive\Mes documents - pro\UQAC\Intelligence artificielle\Projet 1 - Robot aspirateur\VacuumAI\VacuumRobot\obj\x64\Debug\VacuumRobot.exe
 C:\Users\NG\Google Drive\Mes documents - pro\UQAC\Intelligence artificielle\Projet 1 - Robot aspirateur\VacuumAI\VacuumRobot\obj\x64\Debug\VacuumRobot.pdb
+L:\UQAC\Intelligence Artificielle\ProjetAgentIntelligent\VacuumAI\VacuumRobot\bin\x64\Debug\VacuumRobot.exe.config
+L:\UQAC\Intelligence Artificielle\ProjetAgentIntelligent\VacuumAI\VacuumRobot\bin\x64\Debug\VacuumRobot.exe
+L:\UQAC\Intelligence Artificielle\ProjetAgentIntelligent\VacuumAI\VacuumRobot\bin\x64\Debug\VacuumRobot.pdb
+L:\UQAC\Intelligence Artificielle\ProjetAgentIntelligent\VacuumAI\VacuumRobot\bin\x64\Debug\Environment.exe
+L:\UQAC\Intelligence Artificielle\ProjetAgentIntelligent\VacuumAI\VacuumRobot\bin\x64\Debug\Environment.pdb
+L:\UQAC\Intelligence Artificielle\ProjetAgentIntelligent\VacuumAI\VacuumRobot\obj\x64\Debug\VacuumRobot.csprojResolveAssemblyReference.cache
+L:\UQAC\Intelligence Artificielle\ProjetAgentIntelligent\VacuumAI\VacuumRobot\obj\x64\Debug\VacuumRobot.exe
+L:\UQAC\Intelligence Artificielle\ProjetAgentIntelligent\VacuumAI\VacuumRobot\obj\x64\Debug\VacuumRobot.pdb

@@ -63,6 +63,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActionPossible.cs" />
     <Compile Include="Actuator.cs" />
     <Compile Include="RobotAI.cs" />
     <Compile Include="Sensor.cs" />
