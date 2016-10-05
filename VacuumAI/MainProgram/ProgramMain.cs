@@ -1,5 +1,6 @@
 ﻿using Environment;
 using System.Threading;
+using VacuumRobot;
 
 namespace MainProgram
 {
@@ -14,9 +15,19 @@ namespace MainProgram
         /// <param name="args"></param>
         public static void Main(string[] args)
         {
-            Thread monthreadEnvironnement = new Thread(new ThreadStart(ThreadEnvStartingPoint));
+            // Start a new thread with the Environment.
+            Thread monthreadEnvironnement = new Thread(new ThreadStart(ThreadEnvironmentStartingPoint));
             monthreadEnvironnement.SetApartmentState(ApartmentState.STA);
             monthreadEnvironnement.Start();
+
+            Thread monthreadRobotAI = new Thread(new ThreadStart(ThreadRobotStartingPoint));
+            monthreadRobotAI.SetApartmentState(ApartmentState.STA);
+            monthreadRobotAI.Start();
+
+
+
+
+
 
             // Start a new thread with a a vacuum.
             /*MainVacuum.Main();
@@ -27,11 +38,17 @@ namespace MainProgram
         /// <summary>
         /// Function started with the thread monthreadEnvironnement.
         /// </summary>
-        private static void ThreadEnvStartingPoint()
+        private static void ThreadEnvironmentStartingPoint()
         {
             MainWindow window = new MainWindow();
             window.Show();
             System.Windows.Threading.Dispatcher.Run();
+        }
+
+        private static void ThreadRobotStartingPoint()
+        {
+            MainVacuum.Main();
+
         }
     }
 

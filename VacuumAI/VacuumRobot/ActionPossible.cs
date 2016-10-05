@@ -1,27 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MainProgram
+﻿namespace MainProgram
 {
     /// <summary>
     /// Defines the class of action that our agent may undertake
-    /// Each subclass defines its own premises and consequences 
+    /// Each subclass defines its own premises and consequences.
     /// </summary>
-    class ActionPossible
+    public class ActionPossible
     {
-        public string name; 
-        private void Act() { }
-    }
+        private string m_sName;
 
-    /// <summary>
-    /// A possible action is to suck dust
-    /// </summary>
-    class Suck : ActionPossible
-    {
-        public new string name = "Suck";
+        public string Name
+        {
+            get
+            {
+                return m_sName;
+            }
+        }
 
         private void Act()
         {
@@ -29,11 +22,11 @@ namespace MainProgram
     }
 
     /// <summary>
-    /// A possible action is to move the robot
+    /// A possible action is to aspirate dust.
     /// </summary>
-    class MoveRobot : ActionPossible
+    public class Aspirate : ActionPossible
     {
-        public new string name = "MoveRobot";
+        private string m_sName = "Aspirate";
 
         private void Act()
         {
@@ -41,11 +34,11 @@ namespace MainProgram
     }
 
     /// <summary>
-    /// A possible action is to grab jewels
+    /// A possible action is to move the robot.
     /// </summary>
-    class Grab : ActionPossible
+    public class MoveRobot : ActionPossible
     {
-        public new string name = "Grab";
+        private string m_sName = "MoveRobot";
 
         private void Act()
         {
@@ -53,11 +46,23 @@ namespace MainProgram
     }
 
     /// <summary>
-    /// A possible action is to do nothing 
+    /// A possible action is to grab jewels.
     /// </summary>
-    class DoNothing : ActionPossible
+    public class Grab : ActionPossible
     {
-        public new string name = "DoNothing";
+        private string m_sName = "Grab";
+
+        private void Act()
+        {
+        }
+    }
+
+    /// <summary>
+    /// A possible action is to do nothing.
+    /// </summary>
+    public class DoNothing : ActionPossible
+    {
+        private string m_sName = "DoNothing";
 
         private void Act()
         {

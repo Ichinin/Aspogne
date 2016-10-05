@@ -11,8 +11,8 @@ namespace VacuumRobot
         public static void Main()
         {
             //Square[] Path = { };
-            //RobotBDI Nono = new RobotBDI()
-
+            RobotAI Nono = new RobotAI("Nono", 200, null);
+            Console.Write("Console test");
         }
     }
 }
