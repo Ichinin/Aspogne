@@ -15,40 +15,34 @@ namespace MainProgram
         /// <param name="args"></param>
         public static void Main(string[] args)
         {
-            // Start a new thread with the Environment.
-            Thread monthreadEnvironnement = new Thread(new ThreadStart(ThreadEnvironmentStartingPoint));
-            monthreadEnvironnement.SetApartmentState(ApartmentState.STA);
-            monthreadEnvironnement.Start();
+            // Start a new thread Environment.
+            Thread tMyThreadEnvironnement = new Thread(new ThreadStart(ThreadEnvironmentStartingPoint));
+            tMyThreadEnvironnement.SetApartmentState(ApartmentState.STA);
+            tMyThreadEnvironnement.Start();
         }
 
         /// <summary>
-        /// Function started with the thread monthreadEnvironnement.
+        /// Function started with the thread tMyThreadEnvironnement.
         /// </summary>
         private static void ThreadEnvironmentStartingPoint()
         {
-            MainWindow window = new MainWindow();
-            window.Show();
-            Startrobot();
+            MainWindow mwWindow = new MainWindow();
+            mwWindow.Show();
+
+            Thread tMyThreadRobotAI = new Thread(new ThreadStart(ThreadRobotStartingPoint));
+            tMyThreadRobotAI.SetApartmentState(ApartmentState.STA);
+            tMyThreadRobotAI.Start();
+
             System.Windows.Threading.Dispatcher.Run();
         }
 
         /// <summary>
-        /// Function started with the thread monthreadRobotAI.
+        /// Function started with the thread tMyThreadRobotAI.
         /// </summary>
         private static void ThreadRobotStartingPoint()
         {
             MainVacuum.Main();
         }
 
-        /// <summary>
-        /// Create a new thread to run the robot.
-        /// </summary>
-        private static void Startrobot()
-        {
-            Thread monthreadRobotAI = new Thread(new ThreadStart(ThreadRobotStartingPoint));
-            monthreadRobotAI.SetApartmentState(ApartmentState.STA);
-            monthreadRobotAI.Start();
-        }
     }
-
 }

@@ -2,6 +2,9 @@
 
 namespace VacuumRobot
 {
+    /// <summary>
+    /// Classe which contains the robot's actuators.
+    /// </summary>
     public static class Actuator
     {
         /// <summary>

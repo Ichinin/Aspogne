@@ -2,6 +2,9 @@
 
 namespace VacuumRobot
 {
+    /// <summary>
+    /// Classe which contain the robot sensor.
+    /// </summary>
     public static class Sensor
     {
         /// <summary>

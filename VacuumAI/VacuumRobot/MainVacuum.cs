@@ -5,33 +5,56 @@ using System.Windows;
 
 namespace VacuumRobot
 {
+    /// <summary>
+    /// Main program.
+    /// </summary>
     public class MainVacuum
     {
+        /// <summary>
+        /// Get the manor plan.
+        /// </summary>
+        private static List<Environment.Square> lsManor = Environment.MainWindow.SquareList;
+        /// <summary>
+        /// Create a new path for the robot to follow.
+        /// </summary>
+        private static Environment.Square[] asPath = { lsManor [9], lsManor[8], lsManor[7], lsManor[6], lsManor[5], lsManor[10],lsManor[11],
+                lsManor[12], lsManor[7], lsManor[2], lsManor[1], lsManor[0], lsManor[5], lsManor[6], lsManor[7], lsManor[8] };
+        /// <summary>
+        /// Create a new robotAI Jojo with 100 points.
+        /// </summary>
+        private static RobotAI raiJojo = new RobotAI("Aspirobot T-0.1", 25, asPath);
+
+        /// <summary>
+        /// Run the RobotAI
+        /// </summary>
         public static void Main()
         {
-            List<Environment.Square> table = Environment.MainWindow.m_lsGameSquare;
-            Environment.Square[] path = { table [9], table[8], table[7], table[6], table[5], table[10],table[11],
-                table[12], table[7], table[2], table[1], table[0], table[5], table[6], table[7], table[8] };
-            RobotAI Nono = new RobotAI("Jojo", 200, path);
-            path[0].HasVacuum = true;
-            Console.Write("Jojo3000 initialisation over\n");
+            asPath[0].HasVacuum = true;
+            Console.Write("Aspirobot T-0.1 initialisation over\n");
 
-            /* Set the goal to be reached by the robot.
-                 * The possible options are :
-                 * 0 : The robot will focus on cleaning the room and picking up the jewels without caring for time or energy wasted.
-                 * 1 : The robot will go as fast as possible, hoovering both dust and jewels.
-                 * 2 : The robot will save as much energy as possible, staying on the same spot as a result.
-                 */
-            int iGoal = 0;
+            Thread tMyThreadRobotLife = new Thread(new ThreadStart(ThreadRobotStartingPoint));
+            tMyThreadRobotLife.SetApartmentState(ApartmentState.STA);
+            tMyThreadRobotLife.Start();
 
-            while (Nono.AmIAlive())
+            raiJojo.Show();
+            System.Windows.Forms.Application.Run();
+        }
+
+        /// <summary>
+        /// Thread to run the robot through the manor.
+        /// </summary>
+        private static void ThreadRobotStartingPoint()
+        {
+            while (raiJojo.AmIAlive())
             {
                 Thread.Sleep(1000);
-                /*
-                 * 
-                 * 
+                /* The function call execute the BDI model.
+                 * - First we call GetEnvironmentState() which return the state of the environment.
+                 * - The we call DetermineActionUponMyGoal() which determines which action will bring 
+                 * the robot to its goal.
+                 * Finally we call DoAction() which executes the action which has been chose,.
                  */
-                Nono.DoAction(Nono.DetermineActionUponMyGoal(Nono.GetEnvironmentState(), iGoal));
+                raiJojo.DoAction(raiJojo.DetermineActionUponMyGoal(raiJojo.GetEnvironmentState()));
             }
 
             MessageBox.Show("The robot doesn't have any points left", "Robot died...", MessageBoxButton.OK, MessageBoxImage.Error, MessageBoxResult.OK);
@@ -39,3 +62,4 @@ namespace VacuumRobot
 
     }
 }
+
