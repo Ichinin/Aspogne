@@ -54,7 +54,8 @@ namespace VacuumRobot
                  * the robot to its goal.
                  * Finally we call DoAction() which executes the action which has been chose,.
                  */
-                raiJojo.DoAction(raiJojo.DetermineActionUponMyGoal(raiJojo.GetEnvironmentState()));
+                raiJojo.GetEnvironmentState();
+                raiJojo.DoAction(raiJojo.DetermineActionUponMyGoal(raiJojo.UpdateMyState()));
             }
 
             MessageBox.Show("The robot doesn't have any points left", "Robot died...", MessageBoxButton.OK, MessageBoxImage.Error, MessageBoxResult.OK);

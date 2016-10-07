@@ -152,6 +152,18 @@ namespace VacuumRobot
         }
 
         /// <summary>
+        /// Get the Environment state (Dust or not ? Jewel or not ?).
+        /// </summary>
+        public void GetEnvironmentState()
+        {
+            m_bDustDetected = Sensor.HasDust(m_asPathArray[m_iCurrentPositionIndex]);
+            m_bJewelDetected = Sensor.HasJewel(m_asPathArray[m_iCurrentPositionIndex]);
+
+            SetControlText(textBoxDust, m_bDustDetected.ToString());
+            SetControlText(textBoxJewel, m_bJewelDetected.ToString());
+        }
+
+        /// <summary>
         /// Return the current state of the Environment from the robot's point of view.
         /// The state of the Environment can return the following values :
         /// 0 : Nothing on the Square.
@@ -159,15 +171,10 @@ namespace VacuumRobot
         /// 2 : Only jewels on the Square.
         /// 3 : Both dust and jewel on the Square.
         /// </summary>
+        /// </summary>
         /// <returns> Return an int array as followed [Index of the current Square, State of the current Square]. </returns>
-        public int[] GetEnvironmentState()
+        public int[] UpdateMyState()
         {
-            m_bDustDetected = Sensor.HasDust(m_asPathArray[m_iCurrentPositionIndex]);
-            m_bJewelDetected = Sensor.HasJewel(m_asPathArray[m_iCurrentPositionIndex]);
-
-            SetControlText(textBoxDust, m_bDustDetected.ToString());
-            SetControlText(textBoxJewel, m_bJewelDetected.ToString());
-
             int iResultState = 0;
 
             if ((m_bDustDetected == true) && (m_bJewelDetected == false))
